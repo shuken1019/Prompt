@@ -130,6 +130,48 @@ function LanguageToggle({ languageView, setLanguageView }) {
   )
 }
 
+function ScrollTopButton() {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 400)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      aria-label="맨 위로"
+      style={{
+        position: 'fixed',
+        bottom: '1.75rem',
+        right: '1.75rem',
+        zIndex: 900,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '44px',
+        height: '44px',
+        borderRadius: '14px',
+        border: '1px solid var(--color-border-secondary)',
+        background: 'var(--color-background-primary)',
+        color: 'var(--color-text-secondary)',
+        boxShadow: '0 8px 24px rgba(33,24,14,0.14)',
+        cursor: 'pointer',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(12px)',
+        transition: 'opacity 0.2s, transform 0.2s',
+        pointerEvents: visible ? 'auto' : 'none',
+      }}
+    >
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M8 12V4M4 7l4-4 4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </button>
+  )
+}
+
 function App() {
   const [theme, setTheme] = useTheme()
   const [languageView, setLanguageView] = useState(() => localStorage.getItem('languageView') || 'korean')
@@ -142,6 +184,7 @@ function App() {
   return (
     <div style={{ minHeight: '100svh', background: 'var(--color-bg-page)' }}>
       {guideOpen && <GuideModal onClose={() => setGuideOpen(false)} />}
+      <ScrollTopButton />
       <div className="app-container" style={{ maxWidth: '1160px', margin: '0 auto', padding: '0 1.5rem' }}>
 
         {/* 헤더 */}

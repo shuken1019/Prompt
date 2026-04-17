@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { PROMPTS } from "./data/prompts";
 
 const CATEGORIES = ["전체", "생산성", "리서치", "콘텐츠", "AI 워크플로우", "자동화", "코딩", "범용", "마케팅", "세일즈", "고객관리", "제품", "엔지니어링", "글쓰기", "콘텐츠 전략", "SEO", "SaaS", "성장마케팅", "코드 작업", "생산성·시스템", "디버깅", "랜딩페이지", "수익화"];
@@ -325,9 +325,86 @@ function PromptCard({ prompt, languageView }) {
 }
 
 
+const ITEMS_PER_PAGE = 9;
+
+function Pagination({ current, total, onChange }) {
+  if (total <= 1) return null;
+
+  const pages = [];
+  const delta = 2;
+  const left = current - delta;
+  const right = current + delta;
+
+  for (let i = 1; i <= total; i++) {
+    if (i === 1 || i === total || (i >= left && i <= right)) {
+      pages.push(i);
+    }
+  }
+
+  const withEllipsis = [];
+  let prev = null;
+  for (const p of pages) {
+    if (prev !== null && p - prev > 1) withEllipsis.push("…");
+    withEllipsis.push(p);
+    prev = p;
+  }
+
+  const btnBase = {
+    display: "inline-flex", alignItems: "center", justifyContent: "center",
+    minWidth: "36px", height: "36px", padding: "0 8px",
+    borderRadius: "10px", border: "1px solid var(--color-border-secondary)",
+    background: "var(--color-background-primary)",
+    color: "var(--color-text-secondary)",
+    fontSize: "13px", fontWeight: 500, cursor: "pointer",
+    transition: "all 0.12s",
+  };
+
+  return (
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "6px", marginTop: "2.5rem", flexWrap: "wrap" }}>
+      <button
+        onClick={() => onChange(current - 1)}
+        disabled={current === 1}
+        style={{ ...btnBase, opacity: current === 1 ? 0.35 : 1, cursor: current === 1 ? "default" : "pointer" }}
+      >
+        ←
+      </button>
+
+      {withEllipsis.map((p, i) =>
+        p === "…" ? (
+          <span key={`e${i}`} style={{ fontSize: "13px", color: "var(--color-text-tertiary)", padding: "0 2px" }}>…</span>
+        ) : (
+          <button
+            key={p}
+            onClick={() => onChange(p)}
+            style={{
+              ...btnBase,
+              background: p === current ? "var(--color-text-primary)" : "var(--color-background-primary)",
+              color: p === current ? "var(--color-background-primary)" : "var(--color-text-secondary)",
+              border: p === current ? "1px solid transparent" : "1px solid var(--color-border-secondary)",
+              fontWeight: p === current ? 700 : 500,
+              boxShadow: p === current ? "0 4px 12px rgba(33,24,14,0.12)" : "none",
+            }}
+          >
+            {p}
+          </button>
+        )
+      )}
+
+      <button
+        onClick={() => onChange(current + 1)}
+        disabled={current === total}
+        style={{ ...btnBase, opacity: current === total ? 0.35 : 1, cursor: current === total ? "default" : "pointer" }}
+      >
+        →
+      </button>
+    </div>
+  );
+}
+
 export default function PromptLibrary({ languageView }) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("전체");
+  const [currentPage, setCurrentPage] = useState(1);
 
   const filtered = useMemo(() => {
     return PROMPTS.filter(p => {
@@ -349,6 +426,15 @@ export default function PromptLibrary({ languageView }) {
     });
   }, [query, activeCategory]);
 
+  // 필터 변경 시 첫 페이지로 리셋
+  useEffect(() => { setCurrentPage(1); }, [query, activeCategory]);
+
+  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+  const paginated = useMemo(() => {
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filtered.slice(start, start + ITEMS_PER_PAGE);
+  }, [filtered, currentPage]);
+
   const counts = useMemo(() => {
     const map = { "전체": PROMPTS.length };
     PROMPTS.forEach(p => { map[p.category] = (map[p.category] || 0) + 1; });
@@ -360,7 +446,7 @@ export default function PromptLibrary({ languageView }) {
     const groups = categoryOrder
       .map(category => ({
         category,
-        items: filtered.filter(prompt => prompt.category === category),
+        items: paginated.filter(prompt => prompt.category === category),
       }))
       .filter(group => group.items.length > 0);
 
@@ -369,7 +455,12 @@ export default function PromptLibrary({ languageView }) {
     }
 
     return groups;
-  }, [activeCategory, filtered]);
+  }, [activeCategory, paginated]);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="prompt-library" style={{ padding: "1.75rem 0 3rem", fontFamily: "var(--font-sans)" }}>
@@ -463,7 +554,11 @@ export default function PromptLibrary({ languageView }) {
 
       {/* 결과 수 */}
       <p style={{ fontSize: "13px", color: "var(--color-text-tertiary)", marginBottom: "1.25rem" }}>
-        <strong style={{ color: "var(--color-text-secondary)", fontWeight: 600 }}>{filtered.length}</strong>개 표시 중 · 전체 {PROMPTS.length}개
+        <strong style={{ color: "var(--color-text-secondary)", fontWeight: 600 }}>
+          {(currentPage - 1) * ITEMS_PER_PAGE + 1}–{Math.min(currentPage * ITEMS_PER_PAGE, filtered.length)}
+        </strong>
+        {" "}/ {filtered.length}개
+        {filtered.length !== PROMPTS.length && <span> · 전체 {PROMPTS.length}개</span>}
       </p>
 
       {filtered.length === 0 ? (
@@ -517,6 +612,8 @@ export default function PromptLibrary({ languageView }) {
           ))}
         </div>
       )}
+
+      <Pagination current={currentPage} total={totalPages} onChange={handlePageChange} />
 
     </div>
   );
