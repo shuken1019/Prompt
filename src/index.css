@@ -233,34 +233,16 @@ code {
     padding: 0 0.875rem;
   }
 
-  .hero-card {
-    padding: 1.2rem !important;
-    border-radius: 20px !important;
+  .nav-controls {
+    gap: 6px !important;
   }
 
-  .hero-inner {
-    flex-direction: column !important;
-    gap: 1rem !important;
-  }
-
-  .hero-controls {
-    flex-direction: row !important;
-    flex-wrap: wrap;
-    align-items: center !important;
-    width: 100%;
-    justify-content: flex-end;
-    gap: 0.5rem !important;
+  .hero-stats {
+    gap: 6px !important;
   }
 
   .hero-notice {
-    padding: 0.75rem 0.9rem !important;
-    gap: 8px !important;
-    margin-top: 1rem !important;
-  }
-
-  .hero-notice-icon {
-    width: 28px !important;
-    height: 28px !important;
+    text-align: left;
     font-size: 13px !important;
   }
 

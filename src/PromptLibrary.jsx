@@ -18,6 +18,61 @@ const CATEGORY_GROUPS = [
   },
 ];
 
+const CATEGORY_EN = {
+  "전체": "All",
+  "생산성": "Productivity",
+  "리서치": "Research",
+  "콘텐츠": "Content",
+  "AI 워크플로우": "AI Workflow",
+  "자동화": "Automation",
+  "코딩": "Coding",
+  "범용": "General",
+  "마케팅": "Marketing",
+  "세일즈": "Sales",
+  "고객관리": "Customer Relations",
+  "제품": "Product",
+  "엔지니어링": "Engineering",
+  "글쓰기": "Writing",
+  "콘텐츠 전략": "Content Strategy",
+  "SEO": "SEO",
+  "SaaS": "SaaS",
+  "성장마케팅": "Growth Marketing",
+  "코드 작업": "Code Work",
+  "생산성·시스템": "Productivity & Systems",
+  "디버깅": "Debugging",
+  "랜딩페이지": "Landing Pages",
+  "수익화": "Monetization",
+};
+
+const UI = {
+  korean: {
+    searchPlaceholder: "프롬프트 검색 — 키워드, 카테고리, ID",
+    copy: "복사",
+    copied: "복사됨",
+    copyHint: "복사 완료. 원하는 AI에 바로 붙여 넣어 사용하세요.",
+    openHint: "프롬프트를 복사하고 새 창을 열었어요.",
+    noResults: "검색 결과가 없어요. 다른 키워드로 시도해 보세요.",
+    resultCount: (a, b, total, all) =>
+      `${a}–${b} / ${total}개${total !== all ? ` · 전체 ${all}개` : ""}`,
+    prompts: "개",
+    categoryLabel: (cat) => cat,
+    sectionPromptCount: (n) => `${n} prompts`,
+  },
+  english: {
+    searchPlaceholder: "Search prompts — keyword, category, ID",
+    copy: "Copy",
+    copied: "Copied",
+    copyHint: "Copied! Paste it into any AI of your choice.",
+    openHint: "Prompt copied and new tab opened.",
+    noResults: "No results found. Try a different keyword.",
+    resultCount: (a, b, total, all) =>
+      `${a}–${b} of ${total}${total !== all ? ` · ${all} total` : ""}`,
+    prompts: "prompts",
+    categoryLabel: (cat) => CATEGORY_EN[cat] || cat,
+    sectionPromptCount: (n) => `${n} prompts`,
+  },
+};
+
 function CopyIcon({ copied }) {
   if (copied) {
     return (
@@ -92,6 +147,10 @@ async function copyPromptText(text) {
   return copied;
 }
 
+function isMobile() {
+  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+}
+
 function getPromptBody(prompt, languageView) {
   if (languageView === "english") {
     return prompt.bodyEn || prompt.body;
@@ -105,8 +164,8 @@ function PromptCard({ prompt, languageView }) {
   const [hovered, setHovered] = useState(false);
   const [hint, setHint] = useState("");
   const hintTimerRef = useRef(null);
+  const t = UI[languageView] || UI.korean;
   const displayBody = getPromptBody(prompt, languageView);
-  const bodyIsKorean = /[가-힣]/.test(displayBody);
   const displayTitle = languageView === "english" ? prompt.en : prompt.title;
   const displaySubtitle = languageView === "english" ? prompt.title : prompt.en;
   const fallbackNotice =
@@ -129,18 +188,23 @@ function PromptCard({ prompt, languageView }) {
     const didCopy = await copyPromptText(displayBody);
     if (didCopy) {
       showCopiedState();
-      showHint("복사 완료. 원하는 AI에 바로 붙여 넣어 사용하세요.");
+      showHint(t.copyHint);
     }
   };
 
   const openAI = async (e, url, provider) => {
+    e.preventDefault();
     e.stopPropagation();
     const didCopy = await copyPromptText(displayBody);
     if (didCopy) {
       showCopiedState();
-      showHint("프롬프트를 복사하고 새 창을 열었어요.");
+      showHint(t.openHint);
     }
-    window.open(url, '_blank', 'noopener,noreferrer');
+    if (isMobile()) {
+      window.location.href = url;
+    } else {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
   };
 
   const encoded = encodeURIComponent(displayBody);
@@ -197,7 +261,7 @@ function PromptCard({ prompt, languageView }) {
             background: catStyle.badge, color: catStyle.badgeText, whiteSpace: "nowrap",
             letterSpacing: "0.01em",
           }}>
-            {prompt.category}
+            {t.categoryLabel(prompt.category)}
           </span>
           <span style={{ fontSize: "11px", color: "var(--color-text-tertiary)", fontVariantNumeric: "tabular-nums" }}>
             #{prompt.id}
@@ -211,7 +275,7 @@ function PromptCard({ prompt, languageView }) {
           transition: "color 0.15s",
         }}>
           <CopyIcon copied={copied} />
-          {copied ? "복사됨" : "복사"}
+          {copied ? t.copied : t.copy}
         </span>
       </div>
 
@@ -405,6 +469,7 @@ export default function PromptLibrary({ languageView }) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("전체");
   const [currentPage, setCurrentPage] = useState(1);
+  const t = UI[languageView] || UI.korean;
 
   const filtered = useMemo(() => {
     return PROMPTS.filter(p => {
@@ -464,7 +529,7 @@ export default function PromptLibrary({ languageView }) {
 
   return (
     <div className="prompt-library" style={{ padding: "1.75rem 0 3rem", fontFamily: "var(--font-sans)" }}>
-      <h2 style={{ position: "absolute", opacity: 0, pointerEvents: "none" }}>프롬프트 라이브러리</h2>
+      <h2 style={{ position: "absolute", opacity: 0, pointerEvents: "none" }}>Prompt Library</h2>
 
       {/* 검색바 */}
       <div style={{ marginBottom: "1.25rem" }}>
@@ -478,7 +543,7 @@ export default function PromptLibrary({ languageView }) {
           </svg>
           <input
             type="text"
-            placeholder="프롬프트 검색 — 키워드, 카테고리, ID"
+            placeholder={t.searchPlaceholder}
             value={query}
             onChange={e => setQuery(e.target.value)}
             style={{
@@ -488,16 +553,6 @@ export default function PromptLibrary({ languageView }) {
             }}
           />
         </div>
-      </div>
-
-
-      <div style={{
-        fontSize: "12px",
-        color: "var(--color-text-tertiary)",
-        lineHeight: 1.5,
-        marginBottom: "1.15rem",
-      }}>
-        현재는 선택한 언어 기준으로 제목이 바뀌고, 번역 데이터가 없는 상세 내용은 원문으로 표시됩니다.
       </div>
 
       {/* 카테고리 필터 */}
@@ -535,7 +590,7 @@ export default function PromptLibrary({ languageView }) {
                       boxShadow: active ? "0 12px 24px rgba(33, 24, 14, 0.12)" : "none",
                     }}
                   >
-                    {cat}
+                    {t.categoryLabel(cat)}
                     <span style={{
                       marginLeft: "5px",
                       fontSize: "11px",
@@ -554,16 +609,17 @@ export default function PromptLibrary({ languageView }) {
 
       {/* 결과 수 */}
       <p style={{ fontSize: "13px", color: "var(--color-text-tertiary)", marginBottom: "1.25rem" }}>
-        <strong style={{ color: "var(--color-text-secondary)", fontWeight: 600 }}>
-          {(currentPage - 1) * ITEMS_PER_PAGE + 1}–{Math.min(currentPage * ITEMS_PER_PAGE, filtered.length)}
-        </strong>
-        {" "}/ {filtered.length}개
-        {filtered.length !== PROMPTS.length && <span> · 전체 {PROMPTS.length}개</span>}
+        {t.resultCount(
+          (currentPage - 1) * ITEMS_PER_PAGE + 1,
+          Math.min(currentPage * ITEMS_PER_PAGE, filtered.length),
+          filtered.length,
+          PROMPTS.length,
+        )}
       </p>
 
       {filtered.length === 0 ? (
         <div style={{ textAlign: "center", padding: "4rem 0", color: "var(--color-text-secondary)", fontSize: "15px" }}>
-          검색 결과가 없어요. 다른 키워드로 시도해 보세요.
+          {t.noResults}
         </div>
       ) : (
         <div style={{ display: "grid", gap: "1.6rem" }}>
@@ -583,14 +639,14 @@ export default function PromptLibrary({ languageView }) {
                     lineHeight: 1.2,
                     color: "var(--color-text-primary)",
                   }}>
-                    {group.category}
+                    {t.categoryLabel(group.category)}
                   </h3>
                   <p style={{
                     margin: "0.2rem 0 0",
                     fontSize: "12px",
                     color: "var(--color-text-tertiary)",
                   }}>
-                    {group.items.length} prompts
+                    {t.sectionPromptCount(group.items.length)}
                   </p>
                 </div>
                 <div style={{

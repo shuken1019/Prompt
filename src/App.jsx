@@ -130,6 +130,61 @@ function LanguageToggle({ languageView, setLanguageView }) {
   )
 }
 
+function GuideButton({ isEn, onClick }) {
+  const [hov, setHov] = useState(false)
+  return (
+    <button
+      onClick={onClick}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '10px',
+        padding: '14px 28px',
+        borderRadius: '16px',
+        border: '1px solid var(--color-accent)',
+        background: hov ? 'var(--color-accent)' : 'var(--color-accent-glow)',
+        color: hov ? '#1F1408' : 'var(--color-accent)',
+        fontSize: '15px',
+        fontWeight: 700,
+        cursor: 'pointer',
+        transition: 'all 0.18s',
+        marginBottom: '1.75rem',
+        boxShadow: hov
+          ? '0 8px 28px rgba(185,133,52,0.38)'
+          : '0 2px 12px rgba(185,133,52,0.14)',
+        transform: hov ? 'translateY(-1px)' : 'none',
+        letterSpacing: '-0.01em',
+      }}
+    >
+      <span style={{
+        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+        width: '28px', height: '28px', borderRadius: '9px',
+        background: hov ? 'rgba(31,20,8,0.12)' : 'var(--color-accent)',
+        color: hov ? '#1F1408' : '#fff',
+        fontSize: '14px',
+        flexShrink: 0,
+        transition: 'all 0.18s',
+      }}>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.6"/>
+          <path d="M6.5 6C6.5 5.17 7.17 4.5 8 4.5s1.5.67 1.5 1.5c0 1-1.5 1.5-1.5 2.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+          <circle cx="8" cy="11.5" r="0.8" fill="currentColor"/>
+        </svg>
+      </span>
+      {isEn ? 'How to use this library' : '이용 가이드 보기'}
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style={{
+        opacity: 0.7,
+        transform: hov ? 'translateX(2px)' : 'none',
+        transition: 'transform 0.18s',
+      }}>
+        <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </button>
+  )
+}
+
 function ScrollTopButton() {
   const [visible, setVisible] = useState(false)
 
@@ -176,6 +231,7 @@ function App() {
   const [theme, setTheme] = useTheme()
   const [languageView, setLanguageView] = useState(() => localStorage.getItem('languageView') || 'korean')
   const [guideOpen, setGuideOpen] = useState(false)
+  const isEn = languageView === 'english'
 
   useEffect(() => {
     localStorage.setItem('languageView', languageView)
@@ -183,172 +239,226 @@ function App() {
 
   return (
     <div style={{ minHeight: '100svh', background: 'var(--color-bg-page)' }}>
-      {guideOpen && <GuideModal onClose={() => setGuideOpen(false)} />}
+      {guideOpen && <GuideModal onClose={() => setGuideOpen(false)} languageView={languageView} />}
       <ScrollTopButton />
-      <div className="app-container" style={{ maxWidth: '1160px', margin: '0 auto', padding: '0 1.5rem' }}>
 
-        {/* 헤더 */}
-        <header style={{
-          padding: '2rem 0 2.4rem',
-          marginBottom: '0.5rem',
+      {/* ── Sticky Nav Bar ─────────────────────────────────────── */}
+      <header style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 200,
+        borderBottom: '1px solid var(--color-border-tertiary)',
+        background: 'var(--color-bg-page)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+      }}>
+        <div style={{
+          maxWidth: '1160px',
+          margin: '0 auto',
+          padding: '0 1.5rem',
+          height: '56px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '12px',
         }}>
-          <div className="hero-card" style={{
-            position: 'relative',
-            overflow: 'hidden',
-            padding: 'clamp(1.5rem, 3vw, 2.5rem)',
-            borderRadius: '28px',
-            border: '1px solid var(--color-border-secondary)',
-            background: 'linear-gradient(135deg, var(--color-hero-surface) 0%, var(--color-hero-surface-strong) 100%)',
-            boxShadow: '0 24px 60px rgba(61, 43, 20, 0.08)',
-          }}>
-            <div style={{
-              position: 'absolute',
-              inset: '-30% auto auto -10%',
-              width: '260px',
-              height: '260px',
-              borderRadius: '50%',
-              background: 'radial-gradient(circle, var(--color-accent-glow-strong) 0%, rgba(0,0,0,0) 72%)',
-              pointerEvents: 'none',
-            }} />
-            <div style={{
-              position: 'absolute',
-              right: '-40px',
-              top: '-40px',
-              width: '220px',
-              height: '220px',
-              borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0) 70%)',
-              pointerEvents: 'none',
-            }} />
-
-            <div className="hero-inner" style={{
-              position: 'relative',
-              display: 'flex',
-              alignItems: 'flex-start',
-              justifyContent: 'space-between',
-              gap: '24px',
-              flexWrap: 'wrap',
+          {/* Logo */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L12.4 7.6L18 8.4L14 12.2L15 18L10 15.2L5 18L6 12.2L2 8.4L7.6 7.6L10 2Z"
+                fill="var(--color-accent)" stroke="var(--color-accent)" strokeWidth="0.5" strokeLinejoin="round"/>
+            </svg>
+            <span style={{
+              fontSize: '15px',
+              fontWeight: 800,
+              color: 'var(--color-text-primary)',
+              letterSpacing: '-0.02em',
             }}>
-              <div style={{ maxWidth: '720px' }}>
-                <div style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  padding: '0.55rem 0.9rem',
-                  borderRadius: '999px',
-                  background: 'rgba(255,255,255,0.74)',
-                  border: '1px solid rgba(191, 149, 73, 0.28)',
-                  color: 'var(--color-accent)',
-                  fontSize: '11px',
-                  fontWeight: 700,
-                  letterSpacing: '0.18em',
-                  textTransform: 'uppercase',
-                  marginBottom: '1rem',
-                }}>
-                  <span style={{
-                    width: '8px',
-                    height: '8px',
-                    borderRadius: '50%',
-                    background: 'var(--color-accent)',
-                    boxShadow: '0 0 0 5px var(--color-accent-glow)',
-                    display: 'inline-block',
-                  }} />
-                  Prompt Library
-                </div>
+              Prompt Library
+            </span>
+          </div>
 
-                <h1 style={{
-                  fontSize: 'clamp(2.5rem, 5.6vw, 4.2rem)',
-                  fontWeight: 800,
-                  margin: '0 0 1rem',
-                  color: 'var(--color-text-primary)',
-                  letterSpacing: '-0.05em',
-                  lineHeight: 1.02,
-                }}>
-                  Prompt <span style={{ color: 'var(--color-accent)' }}>Library</span>
-                </h1>
+          {/* Controls */}
+          <div className="nav-controls" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <LanguageToggle languageView={languageView} setLanguageView={setLanguageView} />
+            <ThemeToggle theme={theme} setTheme={setTheme} />
+          </div>
+        </div>
+      </header>
 
-                <p style={{
-                  fontSize: 'clamp(15px, 2vw, 18px)',
-                  color: 'var(--color-text-secondary)',
-                  margin: 0,
-                  lineHeight: 1.75,
-                  maxWidth: '56ch',
-                }}>
-                  카테고리별로 엄선한 프롬프트 모음입니다. 카드를 클릭하면 바로 복사되고,
-                  Claude·ChatGPT·Gemini 어디에나 바로 붙여 넣어 쓸 수 있어요.
-                </p>
+      {/* ── Hero Section ───────────────────────────────────────── */}
+      <section style={{ position: 'relative', overflow: 'hidden' }}>
+        {/* Background glow */}
+        <div style={{
+          position: 'absolute',
+          top: '-60px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '900px',
+          height: '480px',
+          borderRadius: '50%',
+          background: 'radial-gradient(ellipse, var(--color-accent-glow-strong) 0%, transparent 65%)',
+          pointerEvents: 'none',
+          opacity: 0.9,
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '1px',
+          background: 'linear-gradient(90deg, transparent 0%, var(--color-border-secondary) 20%, var(--color-border-secondary) 80%, transparent 100%)',
+        }} />
 
-                <div className="hero-notice" style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  flexWrap: 'wrap',
-                  marginTop: '1.4rem',
-                  padding: '0.9rem 1.1rem',
-                  borderRadius: '18px',
-                  background: 'rgba(33, 24, 14, 0.92)',
-                  color: '#F8F1E6',
-                  boxShadow: '0 18px 36px rgba(33, 24, 14, 0.18)',
-                }}>
-                  <span className="hero-notice-icon" style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: '34px',
-                    height: '34px',
-                    borderRadius: '12px',
-                    background: 'var(--color-accent)',
-                    color: '#1F1408',
-                    fontWeight: 800,
-                    fontSize: '15px',
-                  }}>
-                    !
-                  </span>
-                  <span style={{ fontSize: '15px', fontWeight: 600, lineHeight: 1.5 }}>
-                    사용 전 체크: 카드 안의 <strong style={{ color: '#F5CD73' }}>[...]</strong> 부분만
-                    본인 상황에 맞게 바꿔서 쓰면 됩니다.
-                  </span>
-                </div>
-              </div>
+        <div style={{
+          position: 'relative',
+          maxWidth: '1160px',
+          margin: '0 auto',
+          padding: 'clamp(3.5rem, 7vw, 6rem) 1.5rem clamp(3rem, 6vw, 5rem)',
+          textAlign: 'center',
+        }}>
+          {/* Badge */}
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '6px 14px',
+            borderRadius: '999px',
+            background: 'var(--color-accent-glow)',
+            border: '1px solid rgba(185,133,52,0.25)',
+            color: 'var(--color-accent)',
+            fontSize: '11px',
+            fontWeight: 700,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            marginBottom: '1.75rem',
+          }}>
+            <span style={{
+              width: '6px', height: '6px', borderRadius: '50%',
+              background: 'var(--color-accent)',
+              boxShadow: '0 0 0 4px var(--color-accent-glow)',
+              display: 'inline-block',
+            }} />
+            {isEn ? 'AI Prompt Library' : 'AI 프롬프트 라이브러리'}
+          </div>
 
-              <div className="hero-controls" style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-end',
-                gap: '0.8rem',
-                minWidth: 'fit-content',
+          {/* Main title */}
+          <h1 style={{
+            fontSize: 'clamp(2.8rem, 7vw, 5.6rem)',
+            fontWeight: 900,
+            margin: '0 0 1.25rem',
+            color: 'var(--color-text-primary)',
+            letterSpacing: '-0.04em',
+            lineHeight: 1.05,
+          }}>
+            {isEn ? (
+              <>Better prompts,<br />
+              <span style={{ color: 'var(--color-accent)' }}>better results.</span></>
+            ) : (
+              <>프롬프트를 찾고,<br />
+              <span style={{ color: 'var(--color-accent)' }}>바로 써요.</span></>
+            )}
+          </h1>
+
+          {/* Subtitle */}
+          <p style={{
+            fontSize: 'clamp(15px, 2vw, 19px)',
+            color: 'var(--color-text-secondary)',
+            margin: '0 auto 2.25rem',
+            lineHeight: 1.75,
+            maxWidth: '50ch',
+          }}>
+            {isEn
+              ? 'Curated prompts for every task. Click to copy, paste into any AI — Claude, ChatGPT, or Gemini.'
+              : '카테고리별로 엄선한 프롬프트 모음. 카드를 클릭하면 바로 복사돼서 Claude·ChatGPT·Gemini에 바로 쓸 수 있어요.'}
+          </p>
+
+          {/* Stats chips */}
+          <div className="hero-stats" style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '8px',
+            flexWrap: 'wrap',
+            marginBottom: '2.25rem',
+          }}>
+            {[
+              { num: '506', label: isEn ? 'prompts' : '개 프롬프트' },
+              { num: '23', label: isEn ? 'categories' : '개 카테고리' },
+            ].map((s, i) => (
+              <div key={i} style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px',
+                padding: '7px 16px',
+                borderRadius: '999px',
+                border: '1px solid var(--color-border-secondary)',
+                background: 'var(--color-background-primary)',
+                boxShadow: '0 2px 8px rgba(33,24,14,0.06)',
+                fontSize: '13px',
+                color: 'var(--color-text-secondary)',
               }}>
-                <LanguageToggle languageView={languageView} setLanguageView={setLanguageView} />
-                <ThemeToggle theme={theme} setTheme={setTheme} />
-                <button
-                  onClick={() => setGuideOpen(true)}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    padding: '5px 12px',
-                    borderRadius: '999px',
-                    border: '1px solid var(--color-border-secondary)',
-                    background: 'rgba(255,255,255,0.6)',
-                    color: 'var(--color-text-secondary)',
-                    fontSize: '12px',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    transition: 'all 0.15s',
-                  }}
-                >
-                  <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-                    <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.5"/>
-                    <path d="M6.5 6C6.5 5.17 7.17 4.5 8 4.5s1.5.67 1.5 1.5c0 1-1.5 1.5-1.5 2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                    <circle cx="8" cy="11.5" r="0.75" fill="currentColor"/>
-                  </svg>
-                  이용 가이드
-                </button>
+                <strong style={{ color: 'var(--color-text-primary)', fontWeight: 700, fontSize: '14px' }}>
+                  {s.num}
+                </strong>
+                {s.label}
               </div>
+            ))}
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '7px 16px',
+              borderRadius: '999px',
+              border: '1px solid var(--color-border-secondary)',
+              background: 'var(--color-background-primary)',
+              boxShadow: '0 2px 8px rgba(33,24,14,0.06)',
+              fontSize: '13px',
+              color: 'var(--color-text-secondary)',
+            }}>
+              <span style={{ fontWeight: 700, color: '#7C3AED', fontSize: '14px' }}>Claude</span>
+              <span style={{ color: 'var(--color-border-primary)' }}>·</span>
+              <span style={{ fontWeight: 700, color: '#10A37F', fontSize: '14px' }}>ChatGPT</span>
+              <span style={{ color: 'var(--color-border-primary)' }}>·</span>
+              <span style={{ fontWeight: 700, color: '#4285F4', fontSize: '14px' }}>Gemini</span>
             </div>
           </div>
-        </header>
 
+          {/* Guide CTA */}
+          <GuideButton isEn={isEn} onClick={() => setGuideOpen(true)} />
+
+          {/* Notice bar */}
+          <div className="hero-notice" style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '10px',
+            padding: '10px 18px',
+            borderRadius: '14px',
+            border: '1px solid var(--color-border-secondary)',
+            background: 'var(--color-background-primary)',
+            fontSize: '13.5px',
+            color: 'var(--color-text-secondary)',
+            boxShadow: '0 4px 16px rgba(33,24,14,0.07)',
+          }}>
+            <span style={{
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              width: '22px', height: '22px', borderRadius: '8px',
+              background: 'var(--color-accent-glow)',
+              color: 'var(--color-accent)', fontWeight: 800, fontSize: '13px', flexShrink: 0,
+            }}>
+              ✦
+            </span>
+            <span style={{ lineHeight: 1.5 }}>
+              {isEn
+                ? <>Replace the <strong style={{ color: 'var(--color-accent)', fontWeight: 700 }}>[bracketed]</strong> parts with your own context before using.</>
+                : <>카드 안의 <strong style={{ color: 'var(--color-accent)', fontWeight: 700 }}>[대괄호]</strong> 부분만 바꿔서 쓰면 돼요.</>}
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Prompt Library ─────────────────────────────────────── */}
+      <div className="app-container" style={{ maxWidth: '1160px', margin: '0 auto', padding: '0 1.5rem' }}>
         <PromptLibrary languageView={languageView} />
       </div>
     </div>

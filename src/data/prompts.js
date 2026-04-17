@@ -531,13 +531,55 @@ Requirements:
 * 200단어 이하
 * 첫 줄은 스크롤이 멈추게 만들 것
 * 솔직하고 인간적인 약한 순간도 넣을 것
+* 마지막은 질문으로 끝낼 것`, bodyEn: `Write a LinkedIn personal story based on [experience].
+Structure:
+* Opening hook
+* Tension/conflict
+* Key lesson
+* Actionable takeaway
+Requirements:
+* Under 200 words
+* First line must stop the scroll
+* Include an honest, vulnerable moment
+* End with a question`, bodyKo: `[경험]을 바탕으로 링크드인용 개인 스토리를 써줘.
+구성:
+* 첫 문장 훅
+* 긴장감
+* 배운 점
+* 바로 적용할 수 있는 정리
+조건:
+* 200단어 이하
+* 첫 줄은 스크롤이 멈추게 만들 것
+* 솔직하고 인간적인 약한 순간도 넣을 것
 * 마지막은 질문으로 끝낼 것` },
   { id: "452", category: "글쓰기", title: "브랜드 말투 가이드", en: "Brand Voice Guide", body: `[브랜드명]의 브랜드 말투 가이드를 만들어줘.
 정리할 것:
 * 말투 분위기 / 브랜드 성격 / 자주 쓰는 표현 / 절대 쓰지 않을 표현 / 상황별 예문
 아래 상황에 맞는 예시도 포함해줘:
+* SNS 게시글 / 오류 안내 문구 / 처음 시작 안내 메일 / 가격 안내 페이지 / 고객 응대 문구`, bodyEn: `Create a brand voice guide for [brand name].
+Include:
+* Tone / brand personality / common expressions / expressions to avoid / situational examples
+Provide examples for:
+* Social media posts / error messages / welcome emails / pricing page / customer support copy`, bodyKo: `[브랜드명]의 브랜드 말투 가이드를 만들어줘.
+정리할 것:
+* 말투 분위기 / 브랜드 성격 / 자주 쓰는 표현 / 절대 쓰지 않을 표현 / 상황별 예문
+아래 상황에 맞는 예시도 포함해줘:
 * SNS 게시글 / 오류 안내 문구 / 처음 시작 안내 메일 / 가격 안내 페이지 / 고객 응대 문구` },
   { id: "453", category: "콘텐츠 전략", title: "30일 콘텐츠 운영표", en: "30-Day Content Calendar", body: `콘텐츠 전략가처럼 생각하고, [분야]에서 [타깃 고객]을 대상으로 한 30일 콘텐츠 운영표를 짜줘.
+포함할 것:
+* 각 콘텐츠의 첫 문장
+* 콘텐츠 형식
+* 올리기 좋은 시간
+* 어떤 플랫폼에 올리면 좋은지
+* 반복해서 돌려 쓸 핵심 주제 3~4개
+* 주차별 성과 목표`, bodyEn: `Think like a content strategist and build a 30-day content calendar for [target audience] in the [field] space.
+Include:
+* Opening line for each piece of content
+* Content format
+* Best time to post
+* Which platform to use
+* 3–4 core topics to rotate
+* Weekly performance goals`, bodyKo: `콘텐츠 전략가처럼 생각하고, [분야]에서 [타깃 고객]을 대상으로 한 30일 콘텐츠 운영표를 짜줘.
 포함할 것:
 * 각 콘텐츠의 첫 문장
 * 콘텐츠 형식
@@ -551,8 +593,32 @@ Requirements:
 * 플랫폼별 말투에 맞게 바꾸고
 * 각 콘텐츠마다 첫 문장을 강하게 넣고
 * 글자 수 제한도 고려하고
+* 플랫폼별 해시태그 전략도 포함해줘`, bodyEn: `Repurpose this content into multiple formats: [original text]
+* 5 thread-style posts / 3 LinkedIn posts / 10 Instagram captions
+Requirements:
+* Adapt tone for each platform
+* Open each piece with a strong first line
+* Respect character limits
+* Include platform-specific hashtag strategies`, bodyKo: `이 글을 아래 형식으로 다시 만들어줘: [원문]
+* 스레드형 글 5개 / 링크드인 게시글 3개 / 인스타 캡션 10개
+조건:
+* 플랫폼별 말투에 맞게 바꾸고
+* 각 콘텐츠마다 첫 문장을 강하게 넣고
+* 글자 수 제한도 고려하고
 * 플랫폼별 해시태그 전략도 포함해줘` },
   { id: "455", category: "콘텐츠 전략", title: "스크롤 멈추는 문장 20개", en: "20 Scroll-Stopping Headlines", body: `[주제]에 대해 스크롤을 멈추게 하는 문장 20개를 만들어줘.
+활용 방식:
+* 궁금증 유발 / 과감한 주장 / 통계 활용 / 이야기 시작형 / 논쟁적인 관점
+각 문장마다:
+* 논란 가능성 점수 1~10
+* 반응 유도 가능성 점수 1~10
+* 한 줄 이유`, bodyEn: `Create 20 scroll-stopping lines on [topic].
+Types:
+* Curiosity / bold claim / stat-driven / story opener / contrarian take
+For each line:
+* Controversy score 1–10
+* Engagement likelihood score 1–10
+* One-line rationale`, bodyKo: `[주제]에 대해 스크롤을 멈추게 하는 문장 20개를 만들어줘.
 활용 방식:
 * 궁금증 유발 / 과감한 주장 / 통계 활용 / 이야기 시작형 / 논쟁적인 관점
 각 문장마다:
@@ -562,8 +628,24 @@ Requirements:
   { id: "456", category: "콘텐츠 전략", title: "성과 게시물 패턴 분석", en: "Analyze Top Post Patterns", body: `성과가 가장 좋았던 게시물 10개를 분석해서 첫 문장, 길이, 형식, 주제의 공통 패턴을 찾아줘: [게시물 모음]
 그리고
 * 반복해서 쓸 수 있는 공식
+* 성과가 안 좋았던 콘텐츠에서 피해야 할 점도 정리해줘`, bodyEn: `Analyze my 10 top-performing posts and find common patterns in the opening line, length, format, and topic: [post collection]
+Also:
+* Identify a repeatable formula
+* Note what to avoid based on low-performing content`, bodyKo: `성과가 가장 좋았던 게시물 10개를 분석해서 첫 문장, 길이, 형식, 주제의 공통 패턴을 찾아줘: [게시물 모음]
+그리고
+* 반복해서 쓸 수 있는 공식
 * 성과가 안 좋았던 콘텐츠에서 피해야 할 점도 정리해줘` },
   { id: "457", category: "콘텐츠 전략", title: "유튜브 대본 구성안", en: "YouTube Script Outline", body: `[주제]에 대한 유튜브 대본 구성안을 짜줘. 목표는 시청 유지율 60% 이상이야.
+포함할 것:
+* 90초마다 들어갈 흐름 전환 장치
+* 구간별 삽입 화면 아이디어
+* 썸네일 방향 3개
+* 제목 비교안 5개`, bodyEn: `Build a YouTube script outline on [topic]. Goal: 60%+ audience retention.
+Include:
+* Retention hooks every 90 seconds
+* B-roll ideas for each segment
+* 3 thumbnail concepts
+* 5 title variations to A/B test`, bodyKo: `[주제]에 대한 유튜브 대본 구성안을 짜줘. 목표는 시청 유지율 60% 이상이야.
 포함할 것:
 * 90초마다 들어갈 흐름 전환 장치
 * 구간별 삽입 화면 아이디어
@@ -573,16 +655,44 @@ Requirements:
 각 아이디어마다
 * 사람들이 흔히 믿는 생각
 * 그와 반대되는 내 관점
+을 나란히 보여줘. 댓글 토론이 생기게 만들어줘.`, bodyEn: `Generate 10 counter-narrative content ideas that challenge common beliefs in the [field].
+For each idea, show:
+* The commonly held belief
+* Your contrarian perspective
+Side by side. Designed to spark comment debates.`, bodyKo: `[분야]에서 사람들이 흔히 믿는 생각을 깨는 반박형 콘텐츠 아이디어 10개를 만들어줘.
+각 아이디어마다
+* 사람들이 흔히 믿는 생각
+* 그와 반대되는 내 관점
 을 나란히 보여줘. 댓글 토론이 생기게 만들어줘.` },
   { id: "459", category: "SEO", title: "상위노출 콘텐츠 기획안", en: "SEO Content Brief", body: `[키워드]로 상위노출을 노릴 수 있는 상세 콘텐츠 기획안을 만들어줘.
+포함할 것:
+* 검색 의도 / 적정 글 길이 / 소제목 구조 / 경쟁 글의 빈틈
+* 검색 결과 설명 문구 / 내부 연결 글 추천
+* 상단 요약 영역 노출 전략 / 구조화 데이터 적용안`, bodyEn: `Create a detailed SEO content brief to rank for [keyword].
+Include:
+* Search intent / ideal word count / heading structure / gaps in competitor content
+* Meta description / internal linking recommendations
+* Featured snippet strategy / structured data implementation plan`, bodyKo: `[키워드]로 상위노출을 노릴 수 있는 상세 콘텐츠 기획안을 만들어줘.
 포함할 것:
 * 검색 의도 / 적정 글 길이 / 소제목 구조 / 경쟁 글의 빈틈
 * 검색 결과 설명 문구 / 내부 연결 글 추천
 * 상단 요약 영역 노출 전략 / 구조화 데이터 적용안` },
   { id: "460", category: "SEO", title: "경쟁 글 분석 & 빈틈 찾기", en: "Competitor Content Gap Analysis", body: `[키워드]로 상위에 뜨는 경쟁 글 5개를 분석해서 내가 이길 수 있는 콘텐츠 빈틈을 찾아줘: [경쟁 페이지 주소]
 비교할 것:
+* 글 길이 / 링크 확장 가능성 / 최신성 / 빠져 있는 차별화 포인트`, bodyEn: `Analyze the top 5 ranking pages for [keyword] and find content gaps I can win: [competitor URLs]
+Compare:
+* Word count / backlink potential / freshness / missing differentiators`, bodyKo: `[키워드]로 상위에 뜨는 경쟁 글 5개를 분석해서 내가 이길 수 있는 콘텐츠 빈틈을 찾아줘: [경쟁 페이지 주소]
+비교할 것:
 * 글 길이 / 링크 확장 가능성 / 최신성 / 빠져 있는 차별화 포인트` },
   { id: "461", category: "SEO", title: "자동 확장형 SEO 전략", en: "Programmatic SEO Strategy", body: `[데이터 원천]을 바탕으로 100개 이상 페이지를 만드는 자동 확장형 검색 최적화 전략을 짜줘.
+포함할 것:
+* 주소 구조 / 페이지 틀 / 내부 연결 전략
+* 검색엔진 수집 효율 관리 / 대표 페이지 설정 전략
+* 얇은 글로 보이지 않기 위한 최소 기준`, bodyEn: `Build a programmatic SEO strategy to create 100+ pages using [data source].
+Include:
+* URL structure / page template / internal linking strategy
+* Crawl budget management / canonical tag strategy
+* Minimum content standards to avoid thin content`, bodyKo: `[데이터 원천]을 바탕으로 100개 이상 페이지를 만드는 자동 확장형 검색 최적화 전략을 짜줘.
 포함할 것:
 * 주소 구조 / 페이지 틀 / 내부 연결 전략
 * 검색엔진 수집 효율 관리 / 대표 페이지 설정 전략
@@ -591,8 +701,28 @@ Requirements:
 포함할 것:
 * 첫 화면 문구 / 후기와 사례 섹션
 * 자주 묻는 질문 구조화 적용 / 행동유도 버튼 배치 전략
+* 신뢰 요소 / 모바일 중심 레이아웃 제안`, bodyEn: `Write a landing page that ranks for [keyword] and converts visitors.
+Include:
+* Hero copy / testimonials and case studies section
+* FAQ with structured data / CTA button placement strategy
+* Trust signals / mobile-first layout suggestions`, bodyKo: `[키워드]로 검색 유입도 받고, 전환도 잘 나오는 소개 페이지를 써줘.
+포함할 것:
+* 첫 화면 문구 / 후기와 사례 섹션
+* 자주 묻는 질문 구조화 적용 / 행동유도 버튼 배치 전략
 * 신뢰 요소 / 모바일 중심 레이아웃 제안` },
   { id: "463", category: "SEO", title: "사이트 SEO 점검", en: "SEO Site Audit", body: `내 사이트 구조를 검색 최적화 관점에서 점검해줘: [사이트 주소]
+확인할 것:
+* 검색엔진이 잘 읽을 수 있는지 / 내부 연결 구조
+* 연결되지 않은 페이지 / 서로 같은 키워드를 잡아먹는 문제 / 핵심 웹 성능 지표
+그리고
+* 우선순위별 수정 리스트
+* 각 문제를 고쳤을 때 기대되는 유입 변화`, bodyEn: `Audit my site structure from an SEO perspective: [site URL]
+Check:
+* Crawlability / internal link structure
+* Orphan pages / keyword cannibalization / Core Web Vitals
+Then:
+* Prioritized fix list
+* Expected traffic impact for each fix`, bodyKo: `내 사이트 구조를 검색 최적화 관점에서 점검해줘: [사이트 주소]
 확인할 것:
 * 검색엔진이 잘 읽을 수 있는지 / 내부 연결 구조
 * 연결되지 않은 페이지 / 서로 같은 키워드를 잡아먹는 문제 / 핵심 웹 성능 지표
@@ -604,8 +734,30 @@ Requirements:
 * 키워드 50개를 주제 묶음으로 나누고
 * 핵심 글과 보조 글로 구분하고
 * 검색량, 난이도, 우선순위를 표시하고
+* 6개월 발행 일정까지 제안해줘`, bodyEn: `Build a topic authority map for [field].
+Steps:
+* Group 50 keywords into topic clusters
+* Categorize as pillar vs. supporting content
+* Label with search volume, difficulty, and priority
+* Propose a 6-month publishing schedule`, bodyKo: `[분야]에서 주제 권위 구조도를 만들어줘.
+해야 할 것:
+* 키워드 50개를 주제 묶음으로 나누고
+* 핵심 글과 보조 글로 구분하고
+* 검색량, 난이도, 우선순위를 표시하고
 * 6개월 발행 일정까지 제안해줘` },
   { id: "465", category: "SaaS", title: "서비스 아이디어 검증", en: "Validate SaaS Idea", body: `이 서비스 아이디어를 본질부터 따져서 검증해줘: [아이디어]
+분석할 것:
+* 시장 크기 / 경쟁 상황 / 방어력 / 만들어야 하는지 말아야 하는지 결론
+그리고
+* 유입 전략
+* 최소 기능 제품 범위와 예상 일정
+* 가장 위험한 가정 3가지`, bodyEn: `Validate this SaaS idea from first principles: [idea]
+Analyze:
+* Market size / competitive landscape / defensibility / build-or-skip verdict
+Also:
+* Acquisition strategy
+* MVP scope and timeline
+* Top 3 riskiest assumptions`, bodyKo: `이 서비스 아이디어를 본질부터 따져서 검증해줘: [아이디어]
 분석할 것:
 * 시장 크기 / 경쟁 상황 / 방어력 / 만들어야 하는지 말아야 하는지 결론
 그리고
@@ -616,8 +768,24 @@ Requirements:
 포함할 것:
 * 기능 구분 전략 / 기준 가격 심리 / 가장 추천할 요금제
 * 월간 / 연간 가격 비교 / 후기와 사례 배치
+* 가격 아래에 넣을 자주 묻는 질문`, bodyEn: `Design a 3-tier pricing structure for [product name].
+Include:
+* Feature differentiation strategy / anchor pricing psychology / recommended plan to highlight
+* Monthly vs. annual pricing comparison / testimonial placement
+* FAQ to include below the pricing table`, bodyKo: `[상품명]의 가격 구조를 3단계로 설계해줘.
+포함할 것:
+* 기능 구분 전략 / 기준 가격 심리 / 가장 추천할 요금제
+* 월간 / 연간 가격 비교 / 후기와 사례 배치
 * 가격 아래에 넣을 자주 묻는 질문` },
   { id: "467", category: "SaaS", title: "온보딩 이메일 시퀀스", en: "Onboarding Email Sequence", body: `[상품명]의 이탈률을 줄이고 사용 시작률을 높일 안내 메일을 Day 0, 1, 3, 7, 14 기준으로 써줘.
+포함할 것:
+* 제목 / 보내기 좋은 시간
+* 3일 안에 설정을 안 마친 사용자에게 보낼 조건부 메시지
+* 목표 지표: [목표]`, bodyEn: `Write an onboarding email sequence for [product name] to reduce churn and improve activation. Use Day 0, 1, 3, 7, 14 timing.
+Include:
+* Subject lines / optimal send times
+* Conditional message for users who haven't completed setup within 3 days
+* Target metric: [goal]`, bodyKo: `[상품명]의 이탈률을 줄이고 사용 시작률을 높일 안내 메일을 Day 0, 1, 3, 7, 14 기준으로 써줘.
 포함할 것:
 * 제목 / 보내기 좋은 시간
 * 3일 안에 설정을 안 마친 사용자에게 보낼 조건부 메시지
@@ -626,8 +794,24 @@ Requirements:
 포함할 것:
 * 결제 진행 흐름 / 웹훅 처리 방식 / 구독 생애주기
 * 결제 실패 재청구 전략 / 재시도 일정 / 유예기간
+* 요금제 변경 시 정산 방식`, bodyEn: `Design a full payment system architecture for [product name].
+Include:
+* Checkout flow / webhook handling / subscription lifecycle
+* Failed payment recovery strategy / retry schedule / grace period
+* Proration logic for plan upgrades and downgrades`, bodyKo: `[상품명]에 결제 시스템을 붙이기 위한 전체 설계안을 짜줘.
+포함할 것:
+* 결제 진행 흐름 / 웹훅 처리 방식 / 구독 생애주기
+* 결제 실패 재청구 전략 / 재시도 일정 / 유예기간
 * 요금제 변경 시 정산 방식` },
   { id: "469", category: "SaaS", title: "제품 출시 체크리스트 40개", en: "Product Launch Checklist", body: `제품 출시 체크리스트 40개를 만들어줘.
+구성:
+* 출시 전(관심 모으기) / 출시 당일(배포와 확산) / 출시 후(재방문과 유지)
+그리고
+* 각 단계별 활용 채널 / 보낼 메일 / 확인할 성과 지표`, bodyEn: `Create a 40-item product launch checklist.
+Structure:
+* Pre-launch (building buzz) / Launch day (shipping and spreading) / Post-launch (retention and revisits)
+Also:
+* Channels to use at each stage / emails to send / KPIs to track`, bodyKo: `제품 출시 체크리스트 40개를 만들어줘.
 구성:
 * 출시 전(관심 모으기) / 출시 당일(배포와 확산) / 출시 후(재방문과 유지)
 그리고
@@ -636,8 +820,26 @@ Requirements:
 포함할 것:
 * 다시 돌아오게 만드는 메일
 * 해지 화면 개선안
+* 이탈 전에 감지할 수 있는 경고 신호`, bodyEn: `Review my churn data and propose 5 improvements to reduce monthly churn from [X]% to [Y]%: [context]
+Include:
+* Win-back email campaign
+* Cancellation flow improvements
+* Early warning signals to detect churn before it happens`, bodyKo: `내 이탈 데이터를 보고 월간 이탈률을 [X]%에서 [Y]%로 낮출 수 있는 개선안 5개를 제안해줘: [상황 설명]
+포함할 것:
+* 다시 돌아오게 만드는 메일
+* 해지 화면 개선안
 * 이탈 전에 감지할 수 있는 경고 신호` },
   { id: "471", category: "성장마케팅", title: "리드 마그넷 아이디어 10개", en: "Lead Magnet Ideas", body: `[분야]에서 [상품명] 구매로 자연스럽게 이어질 수 있는 무료 제공 자료 아이디어 10개를 만들어줘.
+조건:
+* 2시간 안에 만들 수 있어야 하고
+* 전환 가능성 순으로 정렬하고
+* 형식(PDF, 체크리스트, 퀴즈, 템플릿 등)을 넣고
+* 한 줄 소개 문구도 함께 써줘`, bodyEn: `Generate 10 lead magnet ideas in [field] that naturally lead to buying [product name].
+Requirements:
+* Each must be buildable in under 2 hours
+* Sorted by conversion potential
+* Include format (PDF, checklist, quiz, template, etc.)
+* Write a one-line description for each`, bodyKo: `[분야]에서 [상품명] 구매로 자연스럽게 이어질 수 있는 무료 제공 자료 아이디어 10개를 만들어줘.
 조건:
 * 2시간 안에 만들 수 있어야 하고
 * 전환 가능성 순으로 정렬하고
@@ -648,8 +850,26 @@ Requirements:
 * 문제-자극-해결 구조를 활용하고
 * 열람률이 높을 제목을 제안하고
 * 메일 간 발송 간격 / 개인화 변수
+* 후속 음성메시지 대본도 포함해줘`, bodyEn: `Write a 3-email cold outreach sequence pitching [product name] to [target customer].
+Requirements:
+* Use a Problem–Agitate–Solve structure
+* Suggest high-open-rate subject lines
+* Include send intervals / personalization variables
+* Add a follow-up voicemail script`, bodyKo: `[타깃 고객]에게 [상품명]을 제안하는 첫 제안 메일 3통 흐름을 써줘.
+조건:
+* 문제-자극-해결 구조를 활용하고
+* 열람률이 높을 제목을 제안하고
+* 메일 간 발송 간격 / 개인화 변수
 * 후속 음성메시지 대본도 포함해줘` },
   { id: "473", category: "성장마케팅", title: "구매 망설임 15개 처리", en: "Handle Purchase Objections", body: `[상품명]을 사기 전에 사람들이 자주 하는 망설임 15개를 정리해줘.
+각 항목마다
+* 한 줄 반박 문장
+* 망설임 유형(가격, 신뢰, 타이밍, 경쟁 등)
+* 소개 페이지 어디에 넣으면 좋은지`, bodyEn: `List 15 common objections people have before buying [product name].
+For each:
+* One-line rebuttal
+* Objection type (price, trust, timing, competition, etc.)
+* Best placement on the landing page`, bodyKo: `[상품명]을 사기 전에 사람들이 자주 하는 망설임 15개를 정리해줘.
 각 항목마다
 * 한 줄 반박 문장
 * 망설임 유형(가격, 신뢰, 타이밍, 경쟁 등)
@@ -658,8 +878,24 @@ Requirements:
 목표: 고객 1명이 평균 1.5명의 신규 사용자를 데려오게 만들기
 포함할 것:
 * 추천이 발생하는 순간 / 보상 구조 / 추적 방식
+* 현실적인 확산 수치 예상`, bodyEn: `Design a viral loop for [product name].
+Goal: each customer brings in an average of 1.5 new users
+Include:
+* Moments when referrals naturally occur / reward structure / tracking method
+* Realistic viral coefficient projections`, bodyKo: `[상품명]에 자연 확산 구조를 설계해줘.
+목표: 고객 1명이 평균 1.5명의 신규 사용자를 데려오게 만들기
+포함할 것:
+* 추천이 발생하는 순간 / 보상 구조 / 추적 방식
 * 현실적인 확산 수치 예상` },
   { id: "475", category: "성장마케팅", title: "소개 페이지 제목 5가지 방식", en: "5 Landing Page Headlines", body: `[상품명]용 소개 페이지 제목 5개를 써줘.
+각각 다른 방식 활용:
+* 관심 끌기→흥미→욕구→행동 / 문제→자극→해결
+* 전 / 후 비교 / 사회적 증거 / 긴급성 강조
+각 제목마다 부제목 + 버튼 문구 + 비교 테스트 우선순위 포함`, bodyEn: `Write 5 landing page headlines for [product name].
+Each using a different framework:
+* AIDA / Problem–Agitate–Solve
+* Before/after / Social proof / Urgency
+For each: include a subheadline + CTA button copy + A/B test priority ranking`, bodyKo: `[상품명]용 소개 페이지 제목 5개를 써줘.
 각각 다른 방식 활용:
 * 관심 끌기→흥미→욕구→행동 / 문제→자극→해결
 * 전 / 후 비교 / 사회적 증거 / 긴급성 강조
@@ -668,14 +904,40 @@ Requirements:
 포함할 것:
 * 보상 구조 / 추적 방식 / 추천인용 이메일 문구
 * 단계별 보상 / 뱃지 아이디어
+* SNS 공유 문구 / 추천 1건당 예상 수익성`, bodyEn: `Design a referral program for [product name].
+Include:
+* Reward structure / tracking method / email copy for referrers
+* Tiered reward milestones / badge ideas
+* Social share copy / estimated revenue per referral`, bodyKo: `[상품명] 추천인 프로그램을 설계해줘.
+포함할 것:
+* 보상 구조 / 추적 방식 / 추천인용 이메일 문구
+* 단계별 보상 / 뱃지 아이디어
 * SNS 공유 문구 / 추천 1건당 예상 수익성` },
   { id: "477", category: "코드 작업", title: "프로젝트 운영 문서 만들기", en: "Create Project Documentation", body: `시니어 설계자처럼 내 전체 코드 구조를 검토하고 앞으로 더 효율적으로 협업할 수 있도록 프로젝트 운영 문서를 만들어줘.
+포함할 것:
+* 코딩 기준 / 프로젝트 구조 / 이름 짓는 규칙 / 기술 스택 설명`, bodyEn: `Review my entire codebase like a senior architect and create a project operations document for more efficient collaboration going forward.
+Include:
+* Coding standards / project structure / naming conventions / tech stack overview`, bodyKo: `시니어 설계자처럼 내 전체 코드 구조를 검토하고 앞으로 더 효율적으로 협업할 수 있도록 프로젝트 운영 문서를 만들어줘.
 포함할 것:
 * 코딩 기준 / 프로젝트 구조 / 이름 짓는 규칙 / 기술 스택 설명` },
   { id: "478", category: "코드 작업", title: "시니어 코드 검토", en: "Senior Code Review", body: `변경된 코드 비교본을 보고, 이 구현이 마음에 들지 않는 시니어 개발자처럼 냉정하게 코드 검토를 해줘.
 어떤 점을
+* 비판할지 / 고쳐야 할지 / 반려해야 할지 솔직하게 말해줘`, bodyEn: `Review this code diff as a senior developer who is not impressed with the implementation.
+Be direct about what you would:
+* Criticize / require changes on / reject outright`, bodyKo: `변경된 코드 비교본을 보고, 이 구현이 마음에 들지 않는 시니어 개발자처럼 냉정하게 코드 검토를 해줘.
+어떤 점을
 * 비판할지 / 고쳐야 할지 / 반려해야 할지 솔직하게 말해줘` },
   { id: "479", category: "코드 작업", title: "오류 로그 분석", en: "Analyze Error Log", body: `이 오류 추적 로그를 분석해줘: [오류 내용]
+포함할 것:
+* 근본 원인
+* 왜 이런 문제가 생겼는지 쉬운 말로 설명
+* 적절한 오류 처리 방식이 포함된 해결책
+* 같은 문제가 다시 생기지 않게 막는 재발 방지 테스트`, bodyEn: `Analyze this error trace log: [error content]
+Include:
+* Root cause
+* Plain-language explanation of why this happened
+* Fix with proper error handling
+* Regression test to prevent recurrence`, bodyKo: `이 오류 추적 로그를 분석해줘: [오류 내용]
 포함할 것:
 * 근본 원인
 * 왜 이런 문제가 생겼는지 쉬운 말로 설명
@@ -685,8 +947,26 @@ Requirements:
 조건:
 * 구조를 깔끔하게 나누고
 * 왜 그렇게 바꿨는지 하나씩 설명하고
+* 수정 전 / 후 차이도 보여줘`, bodyEn: `Refactor this function to be more readable, performant, and testable: [code]
+Requirements:
+* Break it into clean, focused units
+* Explain each change and why
+* Show a before/after comparison`, bodyKo: `이 함수를 더 읽기 쉽고, 빠르고, 테스트하기 좋게 고쳐줘: [코드]
+조건:
+* 구조를 깔끔하게 나누고
+* 왜 그렇게 바꿨는지 하나씩 설명하고
 * 수정 전 / 후 차이도 보여줘` },
   { id: "481", category: "코드 작업", title: "전체 테스트 코드 작성", en: "Write Full Test Suite", body: `[함수명]에 대한 전체 테스트 코드를 작성해줘.
+포함할 것:
+* 정상 동작 / 예외 상황 / 오류 처리 / 경계값
+* 다른 기능과 연결된 테스트
+그리고
+* 테스트 이름이 한눈에 보이게 작성해줘`, bodyEn: `Write a complete test suite for [function name].
+Cover:
+* Happy paths / edge cases / error handling / boundary values
+* Integration tests with related features
+And:
+* Write test names that are self-explanatory at a glance`, bodyKo: `[함수명]에 대한 전체 테스트 코드를 작성해줘.
 포함할 것:
 * 정상 동작 / 예외 상황 / 오류 처리 / 경계값
 * 다른 기능과 연결된 테스트
@@ -696,16 +976,44 @@ Requirements:
 체크할 것:
 * SQL 삽입 공격 / 스크립트 삽입 공격 / 위조 요청 공격
 * 인증 우회 / 요청 횟수 제한 누락 / 입력값 검증 문제 / 데이터 노출 위험
+그리고 심각도 순으로 수정 우선순위를 정리해줘`, bodyEn: `Audit this API endpoint for security vulnerabilities: [code]
+Check for:
+* SQL injection / XSS / CSRF
+* Auth bypass / missing rate limiting / input validation gaps / data exposure risks
+Prioritize fixes by severity`, bodyKo: `이 기능 연결 경로에 보안 취약점이 있는지 점검해줘: [코드]
+체크할 것:
+* SQL 삽입 공격 / 스크립트 삽입 공격 / 위조 요청 공격
+* 인증 우회 / 요청 횟수 제한 누락 / 입력값 검증 문제 / 데이터 노출 위험
 그리고 심각도 순으로 수정 우선순위를 정리해줘` },
   { id: "483", category: "생산성·시스템", title: "멀티 역할 주간 체계 설계", en: "Multi-Role Weekly System", body: `[역할 1]과 [역할 2]를 동시에 해내야 하는 사람을 위한 주간 업무 운영 체계를 설계해줘.
+포함할 것:
+* 시간 구간 배치 / 몰아서 처리하는 날 / 에너지 관리
+* 회의 없는 집중 작업 시간 / 업무 전환 여유 시간 / 금요일 점검 루틴`, bodyEn: `Design a weekly operating system for someone who must handle [role 1] and [role 2] simultaneously.
+Include:
+* Time block allocation / batch processing days / energy management
+* Meeting-free deep work hours / context-switching buffer time / Friday review routine`, bodyKo: `[역할 1]과 [역할 2]를 동시에 해내야 하는 사람을 위한 주간 업무 운영 체계를 설계해줘.
 포함할 것:
 * 시간 구간 배치 / 몰아서 처리하는 날 / 에너지 관리
 * 회의 없는 집중 작업 시간 / 업무 전환 여유 시간 / 금요일 점검 루틴` },
   { id: "484", category: "생산성·시스템", title: "할 일 목록을 7일 실행 계획으로", en: "Task List to 7-Day Action Plan", body: `이 복잡한 할 일 목록을 7일 실행 계획으로 바꿔줘: [할 일 목록]
 포함할 것:
 * 우선순위 / 선후관계 / 위임 가능한 일 / 자동화 가능한 일
+* 전체를 풀어주는 핵심 1개 / 버퍼 시간`, bodyEn: `Transform this complex task list into a 7-day action plan: [task list]
+Include:
+* Priority ranking / dependencies / tasks to delegate / tasks to automate
+* One keystone task that unlocks everything else / buffer time`, bodyKo: `이 복잡한 할 일 목록을 7일 실행 계획으로 바꿔줘: [할 일 목록]
+포함할 것:
+* 우선순위 / 선후관계 / 위임 가능한 일 / 자동화 가능한 일
 * 전체를 풀어주는 핵심 1개 / 버퍼 시간` },
   { id: "485", category: "생산성·시스템", title: "AI 자동화 10개 추천", en: "AI Automation Recommendations", body: `이번 주에 바로 세팅할 수 있는 인공지능 자동화 10개를 추천해줘.
+내가 쓰는 도구: [사용 중인 도구]
+현재 문제점: [현재 문제점]
+포함할 것:
+* 정확한 도구 이름 / 세팅 시간 / 주간 절약 시간 / 전체 효율`, bodyEn: `Recommend 10 AI automations I can set up this week.
+My current tools: [tools in use]
+Current pain points: [current problems]
+Include:
+* Exact tool names / setup time / weekly time saved / overall efficiency gain`, bodyKo: `이번 주에 바로 세팅할 수 있는 인공지능 자동화 10개를 추천해줘.
 내가 쓰는 도구: [사용 중인 도구]
 현재 문제점: [현재 문제점]
 포함할 것:
@@ -715,20 +1023,56 @@ Requirements:
 * 기대 효과 / 위험도 / 시간 비용 / 되돌릴 수 있는 정도 / 목표와의 정렬도
 그리고
 * 가중치 점수 방식 / 최종 추천
+* 결론을 바꿀 수 있는 핵심 질문 1개`, bodyEn: `Build a decision matrix to choose between [options].
+Evaluation criteria:
+* Expected impact / risk / time cost / reversibility / alignment with goals
+Also:
+* Weighted scoring method / final recommendation
+* One key question that could change the outcome`, bodyKo: `[선택지] 중 무엇을 선택할지 판단할 수 있는 의사결정 표를 만들어줘.
+평가 항목:
+* 기대 효과 / 위험도 / 시간 비용 / 되돌릴 수 있는 정도 / 목표와의 정렬도
+그리고
+* 가중치 점수 방식 / 최종 추천
 * 결론을 바꿀 수 있는 핵심 질문 1개` },
   { id: "487", category: "생산성·시스템", title: "하루에 30일치 콘텐츠 만들기", en: "Content Batch System", body: `하루 8시간 만에 30일치 콘텐츠를 만드는 콘텐츠 몰아찍기 시스템을 설계해줘.
+분야: [분야] / 형식: [콘텐츠 형식]
+포함할 것:
+* 분 단위 일정표 / 미리 준비할 파일과 템플릿 / 작업 후 점검 방식`, bodyEn: `Design a content batching system to produce 30 days of content in a single 8-hour day.
+Field: [field] / Format: [content format]
+Include:
+* Minute-by-minute schedule / files and templates to prepare in advance / post-session review checklist`, bodyKo: `하루 8시간 만에 30일치 콘텐츠를 만드는 콘텐츠 몰아찍기 시스템을 설계해줘.
 분야: [분야] / 형식: [콘텐츠 형식]
 포함할 것:
 * 분 단위 일정표 / 미리 준비할 파일과 템플릿 / 작업 후 점검 방식` },
   { id: "488", category: "생산성·시스템", title: "개인 운영 시스템 설계", en: "Personal Operating System", body: `[목표] 달성을 위한 개인 운영 시스템을 설계해줘.
 포함할 것:
 * 아침 루틴 / 하루 점검표 / 주간 계획 루틴 / 월간 회고 구조
+* 노션 / 옵시디언 템플릿 구조 / 습관 추적 지표 / 분기별 목표 설정 방식`, bodyEn: `Design a personal operating system for achieving [goal].
+Include:
+* Morning routine / daily review checklist / weekly planning ritual / monthly retrospective structure
+* Notion / Obsidian template layout / habit tracking metrics / quarterly goal-setting framework`, bodyKo: `[목표] 달성을 위한 개인 운영 시스템을 설계해줘.
+포함할 것:
+* 아침 루틴 / 하루 점검표 / 주간 계획 루틴 / 월간 회고 구조
 * 노션 / 옵시디언 템플릿 구조 / 습관 추적 지표 / 분기별 목표 설정 방식` },
   { id: "489", category: "디버깅", title: "코드 구조 리팩토링", en: "Refactor Code Structure", body: `이 코드는 돌아가긴 하지만 유지보수가 너무 힘들어. 구조를 깔끔하게 다시 정리해줘: [코드]
 포함할 것:
 * 재사용 가능한 도구 분리 / 빠진 타입 추가
+* 수정 전 / 후 구조도 / 모든 변경 이유 설명`, bodyEn: `This code works but is a maintenance nightmare. Clean up the structure: [code]
+Include:
+* Extract reusable utilities / add missing types
+* Before/after architecture diagram / explanation for every change`, bodyKo: `이 코드는 돌아가긴 하지만 유지보수가 너무 힘들어. 구조를 깔끔하게 다시 정리해줘: [코드]
+포함할 것:
+* 재사용 가능한 도구 분리 / 빠진 타입 추가
 * 수정 전 / 후 구조도 / 모든 변경 이유 설명` },
   { id: "490", category: "디버깅", title: "운영 환경 버그 추적", en: "Debug Production Issue", body: `운영 환경에서 [오류 내용]이 발생하는데 로컬에서는 재현이 안 돼.
+체계적인 문제 추적 절차 10단계를 만들어줘.
+포함할 것:
+* 환경 차이 체크리스트 / 추가해야 할 로그 전략
+* 다음에 같은 문제가 생겼을 때 잡을 수 있는 모니터링 방식`, bodyEn: `[Error] is happening in production but can't be reproduced locally.
+Create a 10-step systematic debugging procedure.
+Include:
+* Environment diff checklist / additional logging strategy
+* Monitoring setup to catch this type of issue in the future`, bodyKo: `운영 환경에서 [오류 내용]이 발생하는데 로컬에서는 재현이 안 돼.
 체계적인 문제 추적 절차 10단계를 만들어줘.
 포함할 것:
 * 환경 차이 체크리스트 / 추가해야 할 로그 전략
@@ -737,12 +1081,36 @@ Requirements:
 포함할 것:
 * 장단점 / 성능 영향
 * [팀 규모] 규모 팀이라면 어떤 방식을 고를지
+* 의사결정 표 / 예상 개발 기간 / 12개월 유지보수 부담`, bodyEn: `Compare two approaches to implementing [feature]. [Approach A] vs [Approach B]
+Include:
+* Pros and cons / performance implications
+* Which to choose for a [team size] team
+* Decision matrix / estimated dev time / 12-month maintenance burden`, bodyKo: `[기능]을 구현하는 두 가지 접근법을 비교해줘. [방식 A] vs [방식 B]
+포함할 것:
+* 장단점 / 성능 영향
+* [팀 규모] 규모 팀이라면 어떤 방식을 고를지
 * 의사결정 표 / 예상 개발 기간 / 12개월 유지보수 부담` },
   { id: "492", category: "디버깅", title: "기술 전환 계획", en: "Technology Migration Plan", body: `[기존 기술]에서 [새 기술]로 중단 없이 바꾸는 전환 계획을 짜줘.
 포함할 것:
 * 되돌리기 전략 / 위험 평가 / 단계별 일정
+* 점진 적용 장치 / 전환 당일 실행용 안내서`, bodyEn: `Plan a zero-downtime migration from [old technology] to [new technology].
+Include:
+* Rollback strategy / risk assessment / phased timeline
+* Feature flag approach / day-of migration runbook`, bodyKo: `[기존 기술]에서 [새 기술]로 중단 없이 바꾸는 전환 계획을 짜줘.
+포함할 것:
+* 되돌리기 전략 / 위험 평가 / 단계별 일정
 * 점진 적용 장치 / 전환 당일 실행용 안내서` },
   { id: "493", category: "디버깅", title: "데이터 구조 점검", en: "Database Schema Review", body: `[앱 유형] 앱의 데이터 구조를 검토해줘: [스키마]
+확인할 것:
+* 빠진 인덱스 / 반복 조회 문제 / 정규화 문제 / 확장 시 병목
+그리고
+* 구체적인 인덱스 생성 문장 / 캐시 구조 추천
+* 현재 대비 10배 / 100배 규모에서의 성능 예상`, bodyEn: `Review the database schema for a [app type] application: [schema]
+Check for:
+* Missing indexes / N+1 query issues / normalization problems / scaling bottlenecks
+Also:
+* Specific index creation statements / caching layer recommendations
+* Performance projections at 10x / 100x current scale`, bodyKo: `[앱 유형] 앱의 데이터 구조를 검토해줘: [스키마]
 확인할 것:
 * 빠진 인덱스 / 반복 조회 문제 / 정규화 문제 / 확장 시 병목
 그리고
@@ -752,8 +1120,26 @@ Requirements:
 포함할 것:
 * 사용자에게 보여줄 오류 / 로그 기록 방식 / 재시도 로직
 * 장애 상황 우회 처리 / 알림 체계 / 오류 코드 체계
+* 오류 추적 도구 연동 예시 / 심각도별 알림 기준`, bodyEn: `Write an error handling strategy document for a [app type].
+Include:
+* User-facing error messages / logging approach / retry logic
+* Graceful degradation / alerting system / error code taxonomy
+* Error tracking tool integration examples / severity-based notification thresholds`, bodyKo: `[앱 유형]용 오류 처리 전략 문서를 작성해줘.
+포함할 것:
+* 사용자에게 보여줄 오류 / 로그 기록 방식 / 재시도 로직
+* 장애 상황 우회 처리 / 알림 체계 / 오류 코드 체계
 * 오류 추적 도구 연동 예시 / 심각도별 알림 기준` },
   { id: "495", category: "랜딩페이지", title: "첫 화면 문구 3가지 버전", en: "Hero Section Copy", body: `[상품명]의 가치를 3초 안에 이해시키는 첫 화면 문구를 써줘.
+포함할 것:
+* 제목 / 부제목 / 버튼 문구 / 신뢰를 높이는 한 줄
+3가지 버전:
+* 장점 중심형 / 궁금증 유발형 / 사회적 증거 중심형
+추가로 대표 이미지 방향도 제안해줘`, bodyEn: `Write hero section copy that communicates [product name]'s value in 3 seconds.
+Include:
+* Headline / subheadline / CTA button text / one trust-building line
+3 versions:
+* Benefit-led / curiosity-driven / social proof-centered
+Also suggest a hero image direction`, bodyKo: `[상품명]의 가치를 3초 안에 이해시키는 첫 화면 문구를 써줘.
 포함할 것:
 * 제목 / 부제목 / 버튼 문구 / 신뢰를 높이는 한 줄
 3가지 버전:
@@ -764,13 +1150,39 @@ Requirements:
 * 구체적이고 믿을 만한 후기가 나오도록 유도할 것
 * 고객이 쉽게 수정해서 쓸 수 있는 후기 예시 포함
 * 답변을 끌어내는 질문 포함
+* 후속 연락 주기까지 포함`, bodyEn: `Write 10 customer review request emails.
+Requirements:
+* Guide customers toward specific, credible testimonials
+* Include an easy-to-edit testimonial example
+* Include questions that prompt thoughtful replies
+* Specify follow-up timing`, bodyKo: `고객에게 보낼 후기 요청 메일 10개를 써줘.
+조건:
+* 구체적이고 믿을 만한 후기가 나오도록 유도할 것
+* 고객이 쉽게 수정해서 쓸 수 있는 후기 예시 포함
+* 답변을 끌어내는 질문 포함
 * 후속 연락 주기까지 포함` },
   { id: "497", category: "랜딩페이지", title: "가격 안내 페이지 & FAQ", en: "Pricing Page and FAQ", body: `[상품명]용 가격 안내 페이지와 자주 묻는 질문 구성을 짜줘.
 포함할 것:
 * 가장 많이 나오는 구매 망설임 5개에 대한 답변
 * 경쟁사 비교표 / 환불 보장 표시 위치
+* 버튼 근처 신뢰 요소`, bodyEn: `Design a pricing page and FAQ structure for [product name].
+Include:
+* Answers to the top 5 purchase objections
+* Competitor comparison table / placement of money-back guarantee
+* Trust signals near CTA buttons`, bodyKo: `[상품명]용 가격 안내 페이지와 자주 묻는 질문 구성을 짜줘.
+포함할 것:
+* 가장 많이 나오는 구매 망설임 5개에 대한 답변
+* 경쟁사 비교표 / 환불 보장 표시 위치
 * 버튼 근처 신뢰 요소` },
   { id: "498", category: "랜딩페이지", title: "사례 소개 페이지 틀", en: "Case Study Template", body: `[상품명]용 사례 소개 페이지 틀을 만들어줘.
+구성:
+* 문제 상황 / 해결 방법 / 구체적인 숫자가 들어간 결과 / 한 줄 인용문
+그리고
+* 고객 인터뷰 질문 / 시각 구성 초안 / 검색 최적화에 맞는 제목 형식`, bodyEn: `Create a case study page template for [product name].
+Structure:
+* Problem / solution / results with specific numbers / pull quote
+Also:
+* Customer interview questions / visual layout draft / SEO-optimized title format`, bodyKo: `[상품명]용 사례 소개 페이지 틀을 만들어줘.
 구성:
 * 문제 상황 / 해결 방법 / 구체적인 숫자가 들어간 결과 / 한 줄 인용문
 그리고
@@ -780,16 +1192,46 @@ Requirements:
 * 역할 / 적정 글자 수 / 유도해야 할 감정
 추가로
 * 섹션별 도달 목표 / 모바일 / 데스크톱 차이
+* 전환이 잘 나오는 버튼 배치 로직`, bodyEn: `Design a text-based homepage wireframe for [product name].
+For each section:
+* Purpose / recommended word count / emotion to evoke
+Also:
+* Conversion goal per section / mobile vs. desktop differences
+* High-converting button placement logic`, bodyKo: `텍스트로 홈페이지 구조 초안을 설계해줘. 대상 제품은 [상품명]
+각 섹션마다
+* 역할 / 적정 글자 수 / 유도해야 할 감정
+추가로
+* 섹션별 도달 목표 / 모바일 / 데스크톱 차이
 * 전환이 잘 나오는 버튼 배치 로직` },
   { id: "500", category: "랜딩페이지", title: "짧은 안내 문구 작성", en: "UX Microcopy Writing", body: `[상품명]에 들어갈 짧은 안내 문구를 작성해줘.
+대상:
+* 비어 있는 화면 / 오류 안내 문구 / 성공 안내 문구 / 도움말 문구 / 시작 안내 문구
+각 메시지마다 친근한 / 전문적인 / 가벼운 3가지 버전 + 어떤 상황에 어떤 톤이 어울리는지 설명. 톤 기준: [원하는 말투]`, bodyEn: `Write UX microcopy for [product name].
+Target:
+* Empty states / error messages / success messages / tooltips / onboarding prompts
+For each: write 3 tone variations — friendly / professional / casual — with guidance on when each fits. Tone reference: [desired voice]`, bodyKo: `[상품명]에 들어갈 짧은 안내 문구를 작성해줘.
 대상:
 * 비어 있는 화면 / 오류 안내 문구 / 성공 안내 문구 / 도움말 문구 / 시작 안내 문구
 각 메시지마다 친근한 / 전문적인 / 가벼운 3가지 버전 + 어떤 상황에 어떤 톤이 어울리는지 설명. 톤 기준: [원하는 말투]` },
   { id: "501", category: "수익화", title: "디지털 상품 아이디어 10개", en: "Digital Product Ideas", body: `내 전문성 [전문성]을 바탕으로 만들 수 있는 디지털 상품 아이디어 10개를 제안해줘.
 포함할 것:
 * 가격 / 형식 / 예상 제작 시간 / 수익성 대비 노력 순위
+* 출시 순서 / 서로 묶어서 팔기 좋은 조합`, bodyEn: `Suggest 10 digital product ideas based on my expertise in [expertise].
+Include:
+* Price point / format / estimated creation time / effort-to-revenue ranking
+* Suggested launch order / bundle pairings`, bodyKo: `내 전문성 [전문성]을 바탕으로 만들 수 있는 디지털 상품 아이디어 10개를 제안해줘.
+포함할 것:
+* 가격 / 형식 / 예상 제작 시간 / 수익성 대비 노력 순위
 * 출시 순서 / 서로 묶어서 팔기 좋은 조합` },
   { id: "502", category: "수익화", title: "디지털 상품 출시 전략", en: "Digital Product Launch Strategy", body: `가격이 [가격]인 디지털 상품의 출시 전략을 짜줘.
+포함할 것:
+* 사전 대기자 모집 / 출시 주간 흐름 / 자동 판매 흐름
+* 14일 메일 예열 순서
+* 과하지 않으면서 자연스러운 희소성 장치 / 출시 후 점검표`, bodyEn: `Plan a launch strategy for a digital product priced at [price].
+Include:
+* Pre-launch waitlist building / launch week flow / evergreen sales funnel
+* 14-day email warm-up sequence
+* Low-pressure scarcity mechanisms / post-launch review checklist`, bodyKo: `가격이 [가격]인 디지털 상품의 출시 전략을 짜줘.
 포함할 것:
 * 사전 대기자 모집 / 출시 주간 흐름 / 자동 판매 흐름
 * 14일 메일 예열 순서
@@ -799,8 +1241,24 @@ Requirements:
 * 단계별 요금제 / 혜택 / 가격 / 콘텐츠 제공 주기 / 유지 장치
 그리고
 * 신규 회원 시작 흐름 / 커뮤니티 참여 루틴(주간 모임, 챌린지 등)
+* 이탈 방지 장치`, bodyEn: `Design a membership / community product centered around [topic].
+Include:
+* Tiered plans / benefits / pricing / content delivery cadence / retention mechanisms
+Also:
+* New member onboarding flow / community engagement rituals (weekly calls, challenges, etc.)
+* Churn prevention tactics`, bodyKo: `[주제]를 중심으로 멤버십 / 커뮤니티 상품을 설계해줘.
+포함할 것:
+* 단계별 요금제 / 혜택 / 가격 / 콘텐츠 제공 주기 / 유지 장치
+그리고
+* 신규 회원 시작 흐름 / 커뮤니티 참여 루틴(주간 모임, 챌린지 등)
 * 이탈 방지 장치` },
   { id: "504", category: "수익화", title: "객단가 올리기 3가지 방법", en: "Increase Average Order Value", body: `내 현재 매출 구조를 분석해서 새 상품 추가 없이 객단가를 올릴 수 있는 방법 3가지를 제안해줘: [현재 판매 중인 상품]
+포함할 것:
+* 상향 제안 / 추가 제안 배치 위치 / 묶음 판매 가격 심리
+* 충성 고객 프로그램 구조 / 고객 생애가치 예상`, bodyEn: `Analyze my current revenue structure and propose 3 ways to increase average order value without adding new products: [current offerings]
+Include:
+* Upsell / cross-sell placement / bundle pricing psychology
+* Loyalty program structure / customer lifetime value projections`, bodyKo: `내 현재 매출 구조를 분석해서 새 상품 추가 없이 객단가를 올릴 수 있는 방법 3가지를 제안해줘: [현재 판매 중인 상품]
 포함할 것:
 * 상향 제안 / 추가 제안 배치 위치 / 묶음 판매 가격 심리
 * 충성 고객 프로그램 구조 / 고객 생애가치 예상` },
@@ -808,8 +1266,24 @@ Requirements:
 포함할 것:
 * 첫 훅 / 교육 파트 / 판매 제안으로 넘어가는 흐름
 * 망설임 처리 / 장표별 구성 / 구간별 시간
+* 다시보기 안내 메일 흐름 / 망설이는 사람을 전환시키는 실시간 질의응답 전략`, bodyEn: `Design a webinar structure for selling [product name]. Target conversion rate: 10%+.
+Include:
+* Opening hook / education segment / transition into the offer
+* Objection handling / slide-by-slide breakdown / segment timing
+* Replay email flow / live Q&A strategy to convert fence-sitters`, bodyKo: `[상품명]을 판매하는 웨비나 구성안을 짜줘. 목표 전환율은 10% 이상이야.
+포함할 것:
+* 첫 훅 / 교육 파트 / 판매 제안으로 넘어가는 흐름
+* 망설임 처리 / 장표별 구성 / 구간별 시간
 * 다시보기 안내 메일 흐름 / 망설이는 사람을 전환시키는 실시간 질의응답 전략` },
   { id: "506", category: "수익화", title: "협업 제안 메시지 틀", en: "Collaboration Pitch Template", body: `[협업 대상 유형]과 협업하기 위한 제안 메시지 틀을 만들어줘.
+포함할 것:
+* 제안 가치 / 협업 구조 / 후속 연락 흐름
+* 서로에게 돌아가는 이익 정리 / 수익 배분 방식
+* 공동 홍보 아이디어 / 90일 성과 점검표`, bodyEn: `Create a collaboration pitch template for reaching out to [collaborator type].
+Include:
+* Value proposition / collaboration structure / follow-up sequence
+* Mutual benefit breakdown / revenue sharing model
+* Co-promotion ideas / 90-day performance review checklist`, bodyKo: `[협업 대상 유형]과 협업하기 위한 제안 메시지 틀을 만들어줘.
 포함할 것:
 * 제안 가치 / 협업 구조 / 후속 연락 흐름
 * 서로에게 돌아가는 이익 정리 / 수익 배분 방식
