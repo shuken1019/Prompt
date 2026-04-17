@@ -138,11 +138,7 @@ function PromptCard({ prompt, languageView }) {
     const didCopy = await copyPromptText(displayBody);
     if (didCopy) {
       showCopiedState();
-      showHint(
-        provider === "gemini"
-          ? "Gemini 창을 열었어요. 확장을 설치해 두면 입력창까지 자동으로 채워집니다."
-          : "프롬프트를 복사하고 새 창을 열었어요."
-      );
+      showHint("프롬프트를 복사하고 새 창을 열었어요.");
     }
     window.open(url, '_blank', 'noopener,noreferrer');
   };
@@ -326,148 +322,10 @@ function PromptCard({ prompt, languageView }) {
   );
 }
 
-function GeminiGuideModal({ onClose }) {
-  return (
-    <div
-      onClick={onClose}
-      style={{
-        position: "fixed",
-        inset: 0,
-        background: "rgba(17, 12, 7, 0.46)",
-        backdropFilter: "blur(8px)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "1.5rem",
-        zIndex: 50,
-      }}
-    >
-      <div
-        onClick={e => e.stopPropagation()}
-        style={{
-          width: "min(560px, 100%)",
-          borderRadius: "24px",
-          background: "var(--color-background-primary)",
-          border: "1px solid var(--color-border-secondary)",
-          boxShadow: "0 28px 64px rgba(33, 24, 14, 0.18)",
-          padding: "1.4rem 1.4rem 1.2rem",
-        }}
-      >
-        <div style={{ display: "flex", justifyContent: "space-between", gap: "16px", marginBottom: "1rem" }}>
-          <div>
-            <p style={{
-              margin: 0,
-              fontSize: "12px",
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "var(--color-accent)",
-              fontWeight: 700,
-            }}>
-              Gemini Autofill
-            </p>
-            <h3 style={{
-              margin: "0.35rem 0 0",
-              fontSize: "24px",
-              lineHeight: 1.2,
-              color: "var(--color-text-primary)",
-            }}>
-              Gemini 자동입력 켜기
-            </h3>
-          </div>
-          <button
-            onClick={onClose}
-            style={{
-              width: "36px",
-              height: "36px",
-              borderRadius: "50%",
-              border: "1px solid var(--color-border-secondary)",
-              background: "transparent",
-              color: "var(--color-text-secondary)",
-              cursor: "pointer",
-              fontSize: "18px",
-            }}
-          >
-            ×
-          </button>
-        </div>
-
-        <p style={{
-          margin: 0,
-          fontSize: "14px",
-          lineHeight: 1.7,
-          color: "var(--color-text-secondary)",
-        }}>
-          Gemini는 웹사이트만으로 입력창 자동 채우기가 어려워서, 한 번만 크롬 확장을 로드해 두면 됩니다.
-        </p>
-
-        <div style={{
-          display: "grid",
-          gap: "10px",
-          marginTop: "1rem",
-        }}>
-          {[
-            "크롬에서 chrome://extensions 를 열고 개발자 모드를 켭니다.",
-            "압축해제된 확장 프로그램 로드를 눌러 extensions/gemini-autofill 폴더를 선택합니다.",
-            "그다음부터 Prompt Library의 Gemini 버튼을 누르면 Gemini 입력창이 자동으로 채워집니다.",
-          ].map((step, index) => (
-            <div
-              key={step}
-              style={{
-                display: "flex",
-                gap: "12px",
-                alignItems: "flex-start",
-                padding: "0.9rem 1rem",
-                borderRadius: "16px",
-                background: "var(--color-bg-page)",
-                border: "1px solid var(--color-border-tertiary)",
-              }}
-            >
-              <span style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "28px",
-                height: "28px",
-                borderRadius: "50%",
-                background: "var(--color-accent)",
-                color: "#1F1408",
-                fontSize: "13px",
-                fontWeight: 800,
-                flexShrink: 0,
-              }}>
-                {index + 1}
-              </span>
-              <span style={{
-                fontSize: "14px",
-                lineHeight: 1.65,
-                color: "var(--color-text-primary)",
-              }}>
-                {step}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        <div style={{
-          marginTop: "1rem",
-          padding: "0.9rem 1rem",
-          borderRadius: "16px",
-          background: "rgba(185, 133, 52, 0.1)",
-          color: "var(--color-text-secondary)",
-          fontSize: "13px",
-          lineHeight: 1.65,
-        }}>
-          경로: <strong>extensions/gemini-autofill</strong>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function PromptLibrary({ languageView }) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("전체");
-  const [showGeminiGuide, setShowGeminiGuide] = useState(false);
 
   const filtered = useMemo(() => {
     return PROMPTS.filter(p => {
@@ -539,47 +397,6 @@ export default function PromptLibrary({ languageView }) {
         </div>
       </div>
 
-      <div style={{
-        display: "flex",
-        justifyContent: "space-between",
-        gap: "12px",
-        alignItems: "center",
-        flexWrap: "wrap",
-        marginBottom: "1rem",
-      }}>
-        <div style={{
-          fontSize: "13px",
-          color: "var(--color-text-tertiary)",
-          lineHeight: 1.6,
-        }}>
-          Gemini 자동입력이 필요하면 확장을 한 번만 설치하세요.
-        </div>
-        <button
-          onClick={() => setShowGeminiGuide(true)}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-            padding: "0.6rem 0.9rem",
-            borderRadius: "999px",
-            border: "1px solid var(--color-border-secondary)",
-            background: "var(--color-background-primary)",
-            color: "var(--color-text-primary)",
-            fontSize: "12px",
-            fontWeight: 600,
-            cursor: "pointer",
-          }}
-        >
-          <span style={{
-            width: "8px",
-            height: "8px",
-            borderRadius: "50%",
-            background: "var(--color-accent)",
-            display: "inline-block",
-          }} />
-          Gemini Setup Guide
-        </button>
-      </div>
 
       <div style={{
         fontSize: "12px",
@@ -699,7 +516,6 @@ export default function PromptLibrary({ languageView }) {
         </div>
       )}
 
-      {showGeminiGuide ? <GeminiGuideModal onClose={() => setShowGeminiGuide(false)} /> : null}
     </div>
   );
 }

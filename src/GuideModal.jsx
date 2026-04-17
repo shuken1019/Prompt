@@ -211,6 +211,66 @@ export default function GuideModal({ onClose }) {
           </p>
         </div>
 
+        {/* Gemini 연결 안될 때 */}
+        <div style={{
+          padding: '1.2rem',
+          borderRadius: '18px',
+          border: '1px solid var(--color-border-secondary)',
+          background: 'var(--color-hero-surface)',
+          marginBottom: '1.8rem',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.6rem' }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ color: 'var(--color-accent)', flexShrink: 0 }}>
+              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.8"/>
+              <path d="M12 8v4m0 4h.01" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+            </svg>
+            <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--color-text-primary)' }}>
+              Gemini 버튼을 눌렀는데 입력창이 안 채워져요
+            </span>
+          </div>
+          <p style={{ margin: '0 0 0.9rem', fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.65 }}>
+            Gemini는 보안 정책상 외부에서 입력창을 바로 채울 수 없어요.
+            크롬 확장을 한 번만 로드해 두면 이후엔 버튼 클릭만으로 자동 입력됩니다.
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {[
+              '크롬 주소창에 chrome://extensions 를 열고 개발자 모드를 켭니다.',
+              '「압축해제된 확장 프로그램 로드」를 누르고 extensions/gemini-autofill 폴더를 선택합니다.',
+              '이제 Gemini 버튼을 누르면 입력창이 자동으로 채워집니다.',
+            ].map((step, i) => (
+              <div key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                <span style={{
+                  flexShrink: 0,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '22px',
+                  height: '22px',
+                  borderRadius: '50%',
+                  background: 'var(--color-accent)',
+                  color: '#1F1408',
+                  fontSize: '11px',
+                  fontWeight: 800,
+                  marginTop: '1px',
+                }}>
+                  {i + 1}
+                </span>
+                <span style={{ fontSize: '13px', color: 'var(--color-text-primary)', lineHeight: 1.65 }}>{step}</span>
+              </div>
+            ))}
+          </div>
+          <div style={{
+            marginTop: '0.9rem',
+            padding: '0.6rem 0.9rem',
+            borderRadius: '10px',
+            background: 'rgba(185, 133, 52, 0.1)',
+            fontSize: '12px',
+            color: 'var(--color-text-secondary)',
+          }}>
+            확장 경로: <strong style={{ color: 'var(--color-text-primary)' }}>extensions/gemini-autofill</strong>
+          </div>
+        </div>
+
         {/* 추가 팁 */}
         <div>
           <p style={{ margin: '0 0 0.8rem', fontSize: '12px', fontWeight: 700, color: 'var(--color-text-tertiary)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
