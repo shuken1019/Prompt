@@ -226,3 +226,71 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+/* ── Mobile responsive ───────────────────────────────── */
+@media (max-width: 640px) {
+  .app-container {
+    padding: 0 0.875rem;
+  }
+
+  .hero-card {
+    padding: 1.2rem !important;
+    border-radius: 20px !important;
+  }
+
+  .hero-inner {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .hero-controls {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    align-items: center !important;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 0.5rem !important;
+  }
+
+  .hero-notice {
+    padding: 0.75rem 0.9rem !important;
+    gap: 8px !important;
+    margin-top: 1rem !important;
+  }
+
+  .hero-notice-icon {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 13px !important;
+  }
+
+  .prompt-library {
+    padding-top: 1.25rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .prompt-card {
+    padding: 1rem 1.05rem !important;
+  }
+
+  .ai-buttons {
+    flex-wrap: wrap;
+  }
+
+  .guide-modal-box {
+    border-radius: 20px !important;
+    padding: 1.25rem !important;
+  }
+
+  .category-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .category-scroll::-webkit-scrollbar { display: none; }
+}

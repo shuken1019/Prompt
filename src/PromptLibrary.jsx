@@ -172,6 +172,7 @@ function PromptCard({ prompt, languageView }) {
 
   return (
     <div
+      className="prompt-card"
       onClick={handleCopy}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -251,6 +252,7 @@ function PromptCard({ prompt, languageView }) {
 
       {/* AI 연동 버튼 */}
       <div
+        className="ai-buttons"
         style={{ display: "flex", gap: "6px", paddingTop: "2px" }}
         onClick={e => e.stopPropagation()}
       >
@@ -370,7 +372,7 @@ export default function PromptLibrary({ languageView }) {
   }, [activeCategory, filtered]);
 
   return (
-    <div style={{ padding: "1.75rem 0 3rem", fontFamily: "var(--font-sans)" }}>
+    <div className="prompt-library" style={{ padding: "1.75rem 0 3rem", fontFamily: "var(--font-sans)" }}>
       <h2 style={{ position: "absolute", opacity: 0, pointerEvents: "none" }}>프롬프트 라이브러리</h2>
 
       {/* 검색바 */}
@@ -421,7 +423,7 @@ export default function PromptLibrary({ languageView }) {
             }}>
               {group.title}
             </div>
-            <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+            <div className="category-scroll" style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
               {group.categories.map(cat => {
                 const active = cat === activeCategory;
                 return (
@@ -504,7 +506,7 @@ export default function PromptLibrary({ languageView }) {
                 }} />
               </div>
 
-              <div style={{
+              <div className="card-grid" style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
                 gap: "14px",

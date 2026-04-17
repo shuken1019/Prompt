@@ -83,6 +83,7 @@ export default function GuideModal({ onClose }) {
       }}
     >
       <div
+        className="guide-modal-box"
         onClick={e => e.stopPropagation()}
         style={{
           width: '100%',

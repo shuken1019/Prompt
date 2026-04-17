@@ -142,14 +142,14 @@ function App() {
   return (
     <div style={{ minHeight: '100svh', background: 'var(--color-bg-page)' }}>
       {guideOpen && <GuideModal onClose={() => setGuideOpen(false)} />}
-      <div style={{ maxWidth: '1160px', margin: '0 auto', padding: '0 1.5rem' }}>
+      <div className="app-container" style={{ maxWidth: '1160px', margin: '0 auto', padding: '0 1.5rem' }}>
 
         {/* 헤더 */}
         <header style={{
           padding: '2rem 0 2.4rem',
           marginBottom: '0.5rem',
         }}>
-          <div style={{
+          <div className="hero-card" style={{
             position: 'relative',
             overflow: 'hidden',
             padding: 'clamp(1.5rem, 3vw, 2.5rem)',
@@ -178,7 +178,7 @@ function App() {
               pointerEvents: 'none',
             }} />
 
-            <div style={{
+            <div className="hero-inner" style={{
               position: 'relative',
               display: 'flex',
               alignItems: 'flex-start',
@@ -235,7 +235,7 @@ function App() {
                   Claude·ChatGPT·Gemini 어디에나 바로 붙여 넣어 쓸 수 있어요.
                 </p>
 
-                <div style={{
+                <div className="hero-notice" style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '12px',
@@ -247,7 +247,7 @@ function App() {
                   color: '#F8F1E6',
                   boxShadow: '0 18px 36px rgba(33, 24, 14, 0.18)',
                 }}>
-                  <span style={{
+                  <span className="hero-notice-icon" style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -268,7 +268,7 @@ function App() {
                 </div>
               </div>
 
-              <div style={{
+              <div className="hero-controls" style={{
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'flex-end',
