@@ -8,6 +8,11 @@ const THEMES = [
   { value: 'auto',  label: 'Auto' },
 ]
 
+const LANGUAGES = [
+  { value: 'korean', label: 'Korean' },
+  { value: 'english', label: 'English' },
+]
+
 function useTheme() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'auto')
   const [systemTheme, setSystemTheme] = useState(() => {
@@ -88,8 +93,49 @@ function ThemeToggle({ theme, setTheme }) {
   )
 }
 
+function LanguageToggle({ languageView, setLanguageView }) {
+  return (
+    <div style={{
+      display: 'flex',
+      gap: '2px',
+      background: 'var(--color-border-tertiary)',
+      borderRadius: '10px',
+      padding: '3px',
+    }}>
+      {LANGUAGES.map(option => (
+        <button
+          key={option.value}
+          onClick={() => setLanguageView(option.value)}
+          title={option.label}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '4px 10px',
+            borderRadius: '7px',
+            border: 'none',
+            cursor: 'pointer',
+            fontSize: '12px',
+            fontWeight: languageView === option.value ? 600 : 400,
+            background: languageView === option.value ? 'var(--color-background-primary)' : 'transparent',
+            color: languageView === option.value ? 'var(--color-text-primary)' : 'var(--color-text-tertiary)',
+            boxShadow: languageView === option.value ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+            transition: 'all 0.15s',
+          }}
+        >
+          {option.label}
+        </button>
+      ))}
+    </div>
+  )
+}
+
 function App() {
   const [theme, setTheme] = useTheme()
+  const [languageView, setLanguageView] = useState(() => localStorage.getItem('languageView') || 'korean')
+
+  useEffect(() => {
+    localStorage.setItem('languageView', languageView)
+  }, [languageView])
 
   return (
     <div style={{ minHeight: '100svh', background: 'var(--color-bg-page)' }}>
@@ -226,6 +272,7 @@ function App() {
                 gap: '0.8rem',
                 minWidth: 'fit-content',
               }}>
+                <LanguageToggle languageView={languageView} setLanguageView={setLanguageView} />
                 <ThemeToggle theme={theme} setTheme={setTheme} />
                 <div style={{
                   display: 'inline-flex',
@@ -251,7 +298,7 @@ function App() {
           </div>
         </header>
 
-        <PromptLibrary />
+        <PromptLibrary languageView={languageView} />
       </div>
     </div>
   )
