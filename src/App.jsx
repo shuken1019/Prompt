@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import PromptLibrary from './PromptLibrary'
+import GuideModal from './GuideModal'
 import './App.css'
 
 const THEMES = [
@@ -132,6 +133,7 @@ function LanguageToggle({ languageView, setLanguageView }) {
 function App() {
   const [theme, setTheme] = useTheme()
   const [languageView, setLanguageView] = useState(() => localStorage.getItem('languageView') || 'korean')
+  const [guideOpen, setGuideOpen] = useState(false)
 
   useEffect(() => {
     localStorage.setItem('languageView', languageView)
@@ -139,6 +141,7 @@ function App() {
 
   return (
     <div style={{ minHeight: '100svh', background: 'var(--color-bg-page)' }}>
+      {guideOpen && <GuideModal onClose={() => setGuideOpen(false)} />}
       <div style={{ maxWidth: '1160px', margin: '0 auto', padding: '0 1.5rem' }}>
 
         {/* 헤더 */}
@@ -274,25 +277,30 @@ function App() {
               }}>
                 <LanguageToggle languageView={languageView} setLanguageView={setLanguageView} />
                 <ThemeToggle theme={theme} setTheme={setTheme} />
-                <div style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '0.35rem 0.2rem',
-                  borderRadius: '999px',
-                  color: 'var(--color-text-tertiary)',
-                  fontSize: '12px',
-                  lineHeight: 1.4,
-                }}>
-                  <span style={{
-                    width: '8px',
-                    height: '8px',
-                    borderRadius: '50%',
-                    background: 'var(--color-accent)',
-                    display: 'inline-block',
-                  }} />
-                  클릭하면 즉시 복사
-                </div>
+                <button
+                  onClick={() => setGuideOpen(true)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '5px 12px',
+                    borderRadius: '999px',
+                    border: '1px solid var(--color-border-secondary)',
+                    background: 'rgba(255,255,255,0.6)',
+                    color: 'var(--color-text-secondary)',
+                    fontSize: '12px',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    transition: 'all 0.15s',
+                  }}
+                >
+                  <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M6.5 6C6.5 5.17 7.17 4.5 8 4.5s1.5.67 1.5 1.5c0 1-1.5 1.5-1.5 2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                    <circle cx="8" cy="11.5" r="0.75" fill="currentColor"/>
+                  </svg>
+                  이용 가이드
+                </button>
               </div>
             </div>
           </div>
