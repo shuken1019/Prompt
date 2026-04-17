@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useMemo, useRef, useState } from "react";
 
 const CATEGORIES = ["전체", "생산성", "리서치", "콘텐츠", "AI 워크플로우", "자동화", "코딩", "범용", "마케팅", "세일즈", "고객관리", "제품", "엔지니어링", "글쓰기", "콘텐츠 전략", "SEO", "SaaS", "성장마케팅", "코드 작업", "생산성·시스템", "디버깅", "랜딩페이지", "수익화"];
 
@@ -788,14 +788,14 @@ function CopyIcon({ copied }) {
   );
 }
 
-function AIButton({ label, url, bg, color, hoverBg, icon, onOpen }) {
+function AIButton({ label, url, bg, color, hoverBg, icon, onOpen, provider }) {
   const [hov, setHov] = useState(false);
   return (
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={e => { e.stopPropagation(); }}
+      onClick={e => onOpen(e, url, provider)}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       style={{
@@ -815,19 +815,73 @@ function AIButton({ label, url, bg, color, hoverBg, icon, onOpen }) {
   );
 }
 
+async function copyPromptText(text) {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      // Fall through to the textarea fallback below.
+    }
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.top = "-9999px";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.select();
+  textarea.setSelectionRange(0, textarea.value.length);
+
+  let copied = false;
+  try {
+    copied = document.execCommand("copy");
+  } catch {
+    copied = false;
+  }
+
+  document.body.removeChild(textarea);
+  return copied;
+}
+
 function PromptCard({ prompt }) {
   const [copied, setCopied] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const [hint, setHint] = useState("");
+  const hintTimerRef = useRef(null);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(prompt.body).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
-    });
+  const showHint = (message) => {
+    setHint(message);
+    window.clearTimeout(hintTimerRef.current);
+    hintTimerRef.current = window.setTimeout(() => setHint(""), 2400);
   };
 
-  const openAI = (e, url) => {
+  const showCopiedState = () => {
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1800);
+  };
+
+  const handleCopy = async () => {
+    const didCopy = await copyPromptText(prompt.body);
+    if (didCopy) {
+      showCopiedState();
+      showHint("복사 완료. 원하는 AI에 바로 붙여 넣어 사용하세요.");
+    }
+  };
+
+  const openAI = async (e, url, provider) => {
     e.stopPropagation();
+    const didCopy = await copyPromptText(prompt.body);
+    if (didCopy) {
+      showCopiedState();
+      showHint(
+        provider === "gemini"
+          ? "Gemini 창을 열었어요. 확장을 설치해 두면 입력창까지 자동으로 채워집니다."
+          : "프롬프트를 복사하고 새 창을 열었어요."
+      );
+    }
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
@@ -937,6 +991,7 @@ function PromptCard({ prompt }) {
             bg: "rgba(124,58,237,0.08)",
             color: "var(--color-accent)",
             hoverBg: "rgba(124,58,237,0.16)",
+            provider: "claude",
             icon: (
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
@@ -949,6 +1004,7 @@ function PromptCard({ prompt }) {
             bg: "rgba(16,163,127,0.08)",
             color: "#10A37F",
             hoverBg: "rgba(16,163,127,0.16)",
+            provider: "chatgpt",
             icon: (
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -957,17 +1013,18 @@ function PromptCard({ prompt }) {
           },
           {
             label: "Gemini",
-            url: `https://gemini.google.com/app?q=${encoded}`,
+            url: `https://gemini.google.com/app#prompt=${encoded}`,
             bg: "rgba(66,133,244,0.08)",
             color: "#4285F4",
             hoverBg: "rgba(66,133,244,0.16)",
+            provider: "gemini",
             icon: (
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
               </svg>
             ),
           },
-        ].map(({ label, url, bg, color, hoverBg, icon }) => (
+        ].map(({ label, url, bg, color, hoverBg, icon, provider }) => (
           <AIButton
             key={label}
             label={label}
@@ -977,8 +1034,19 @@ function PromptCard({ prompt }) {
             hoverBg={hoverBg}
             icon={icon}
             onOpen={openAI}
+            provider={provider}
           />
         ))}
+      </div>
+
+      <div style={{
+        minHeight: "18px",
+        fontSize: "11px",
+        color: hint ? "var(--color-text-secondary)" : "transparent",
+        lineHeight: 1.5,
+        transition: "color 0.15s ease",
+      }}>
+        {hint || "."}
       </div>
     </div>
   );

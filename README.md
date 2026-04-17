@@ -1,16 +1,33 @@
-# Prompt
+# Prompt Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Prompt Library is a Vite + React app for browsing curated prompts and copying them into AI tools quickly.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+## Build
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run build
+```
 
-## Expanding the ESLint configuration
+## Gemini Autofill Extension
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The web app can open Gemini directly, but Gemini does not reliably support prompt prefills from normal website URLs on its own.
+
+To make the `Gemini` button open Gemini and fill the prompt box automatically:
+
+1. Open `chrome://extensions`
+2. Turn on `Developer mode`
+3. Click `Load unpacked`
+4. Select:
+
+```text
+extensions/gemini-autofill
+```
+
+After that, clicking `Gemini` in the app opens `gemini.google.com` and the extension injects the selected prompt into Gemini's input field.
