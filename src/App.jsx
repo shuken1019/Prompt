@@ -10,16 +10,43 @@ const THEMES = [
 
 function useTheme() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'auto')
+  const [systemTheme, setSystemTheme] = useState(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) {
+      return 'light'
+    }
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  })
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) {
+      return undefined
+    }
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    const updateSystemTheme = (event) => {
+      setSystemTheme(event.matches ? 'dark' : 'light')
+    }
+
+    setSystemTheme(mediaQuery.matches ? 'dark' : 'light')
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', updateSystemTheme)
+      return () => mediaQuery.removeEventListener('change', updateSystemTheme)
+    }
+
+    mediaQuery.addListener(updateSystemTheme)
+    return () => mediaQuery.removeListener(updateSystemTheme)
+  }, [])
 
   useEffect(() => {
     localStorage.setItem('theme', theme)
     const root = document.documentElement
-    if (theme === 'auto') {
-      root.removeAttribute('data-theme')
-    } else {
-      root.setAttribute('data-theme', theme)
-    }
-  }, [theme])
+    const resolvedTheme = theme === 'auto' ? systemTheme : theme
+
+    root.setAttribute('data-theme', resolvedTheme)
+    root.setAttribute('data-theme-mode', theme)
+  }, [theme, systemTheme])
 
   return [theme, setTheme]
 }
