@@ -142,6 +142,14 @@ function App() {
               }}>
                 카드를 클릭하면 바로 복사됩니다 · 생산성·코딩·AI 등 6개 카테고리
               </p>
+              <p style={{
+                fontSize: '13px',
+                color: 'var(--color-text-secondary)',
+                margin: '10px 0 0',
+                lineHeight: 1.6,
+              }}>
+                사용법 · <strong>[...]</strong> 대괄호 부분만 본인 상황에 맞게 바꿔주세요
+              </p>
             </div>
             <ThemeToggle theme={theme} setTheme={setTheme} />
           </div>
